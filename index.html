@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Photo Album</title>
+    <!-- API Gateway SDK -->
+    <script src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script src="./assets/js/sdk/lib/url-template/url-template.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/utils.js"></script>
+    <script src="./assets/js/sdk/apigClient.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body style="background-repeat: no-repeat; background-attachment: fixed; background-size: cover;
+                background-image: url('https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'); 
+                text-align: center; ">
+    <br><br>
+    <h1 style="font-family:verdana;">Photo Album</h1>
+    <br><br>
+    <h2 style="font-family:verdana;">Search</h2>
+    <div>
+        <input id="query_string" style="height: 20px;width: 400px;" type="text">
+        <button type="submit" style="border: none; margin-left: -35px; background-color: white; height: 20px; width: 30px;" id="start-button" ><i class="fa fa-microphone"></i></button>
+        
+        <!-- <div> -->
+          <button type="submit" onclick="search()" style=" height: 25px;background-color: white;">Search</button>
+        <!-- </div> -->
+        <!-- <div>
+          
+        </div>
+        <div>
+          <button type="submit" id="stop-button">Stop Transcript</button>
+        </div> -->
+    </div>
+    <!-- <div id="text_message"></div> -->
+    <br><br>
+    <div id="img-container"></div>
+    <br><br>
+    <h2 style="font-family:verdana;">Upload</h2>
+    <div > 
+        <input id="file_path" type="file" >
+        <div>
+          <h4 style="font-family:verdana;">Labels (Optional)</h4>
+          <input id="file_labels" style="height: 18px;width: 100px;" type="text">
+        </div>
+        <br><br>
+        <div>
+            <button type="submit" onclick="upload()">Upload</button>
+        </div>
+    </div>
+    <div id="message"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./chat.js"></script>
+  </body>
+</html>
