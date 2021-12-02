@@ -1,0 +1,25 @@
+form
+{
+    display: table;
+    margin: auto;   
+}
+
+p
+{
+    display: table-row;
+}
+
+label
+{
+    display: table-cell;
+    text-align: right;
+}
+
+input
+{
+    display: table-cell;
+}
+select
+{
+    display: table-cell;
+}
