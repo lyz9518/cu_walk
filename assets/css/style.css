@@ -1,0 +1,41 @@
+body{
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: cover;
+    background-image: linear-gradient(0deg, rgba(19, 35, 96),rgba(25, 99, 166));
+}
+
+#query_string{
+    border-radius: 8px;
+    height: 40px;
+    width: 400px; 
+    border: 1px solid white;
+    text-align: center;
+    background-color: transparent;
+}
+
+#submit_button {
+    border-radius: 8px;
+    height: 40px; 
+    width: 400px;
+    background-color: white; 
+    color: rgba(19, 35, 96);
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    body {
+        margin-top: 400px;
+    }
+
+    #logo {
+        width: 700px;
+    }
+
+    #query_string, #submit_button {
+        width: 700px;
+        height: 80px;
+        font-size: 40px;
+    }
+}
