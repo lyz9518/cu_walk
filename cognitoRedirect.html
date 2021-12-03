@@ -39,41 +39,27 @@
     }
 
     // https://github.com/amazon-archives/amazon-cognito-auth-js/issues/68
+    // https://stackoverflow.com/questions/10812628/open-a-new-tab-in-the-background
     console.log(window.location.href);
     if (window.location.href ===
         "https://6998frontendtest.s3.amazonaws.com/cognitoRedirect.html#" +
         "error_description=PreSignUp+failed+with+error+Please_use_Email_of_Columbia_University_to_log_in." +
         "+&error=invalid_request") {
         document.getElementById('Username').innerHTML = "Please use your Columbia University Email to Log In!";
-        document.getElementById('redirectMessage').innerHTML = "Redirecting you to the SignIn page in 5 seconds....";
-
+        document.getElementById('redirectMessage').innerHTML = "Redirecting you to the SignIn page in a few seconds....";
         deleteAllCookies();
         var glo = window.open("https://www.google.com/accounts/Logout");
+        var win = window.open('https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?redirect_uri=' +
+            'https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&response_type=token&client_id=' +
+            'uudop5ji4a930hd2ld8gio4qn');
+        var wait = window.open("https://6998frontendtest.s3.amazonaws.com/wait.html");
         setTimeout(function () {
-            var win = window.open('https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?redirect_uri=' +
-                'https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&response_type=token&client_id=' +
-                'uudop5ji4a930hd2ld8gio4qn');
             setTimeout(function () {
                 glo.close();
                 window.close();
-            }, 1000);
+                wait.close();
+            }, 5000);
         },5);
-
-        // setTimeout(function () {
-        //     var glo = window.open("https://www.google.com/accounts/Logout");
-        //     setTimeout(function () {
-        //         glo.close();
-        //         window.close();
-        //     }, 3000)
-        // },3000)
-        // setTimeout(function () {
-        //     document.getElementById('logOut').click();
-        //     setTimeout(function () {
-        //         window.close();
-        //     }, 1000)
-        // }, 5000);
-
-
         // setTimeout(function () {
         //     // do log out to clear the cookie and sessions
         //     // https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html
@@ -101,11 +87,12 @@
         console.log(idToken);
         console.log("access:")
         console.log(accessToken);
-        // window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
-
+        window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
         // Session
         // localStorage.setItem("id_token",idToken);
         // console.log(localStorage.getItem("id_token"));
+
+
         // $.ajax({
         //     url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
         //     headers: {"Token": idToken},
