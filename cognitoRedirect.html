@@ -11,14 +11,34 @@
 <!--<script src="https://raw.githubusercontent.com/aws/amazon-cognito-identity-js/master/dist/amazon-cognito-identity.min.js"></script>-->
 
 <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@5.2.3/dist/amazon-cognito-identity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <!--<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1041.0.min.js"></script>-->
 <body>
 <div id="Username"></div>
 <div id="Email"></div>
 <div id="redirectMessage"></div>
+<a href="https://www.google.com/accounts/Logout"
+   onclick="myIFrame.location='https://www.google.com/accounts/Logout';StartPollingForCompletion();return false;"
+   style="visibility: hidden" id="logOut" target="_blank">
+    log out</a>
+<iframe id="myIFrame" style="visibility: hidden"></iframe>
 </body>
 </html>
 <script>
+    // https://stackoverflow.com/questions/179355/clearing-all-cookies-with-javascript
+    function deleteAllCookies() {
+
+        var cookies = document.cookie.split(";");
+        console.log(cookies)
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
+
+    // https://github.com/amazon-archives/amazon-cognito-auth-js/issues/68
     console.log(window.location.href);
     if (window.location.href ===
         "https://6998frontendtest.s3.amazonaws.com/cognitoRedirect.html#" +
@@ -26,18 +46,34 @@
         "+&error=invalid_request") {
         document.getElementById('Username').innerHTML = "Please use your Columbia University Email to Log In!";
         document.getElementById('redirectMessage').innerHTML = "Redirecting you to the SignIn page in 5 seconds....";
-        $.ajax({
-            url: "https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/logout" + "?" + "client_id=uudop5ji4a930hd2ld8gio4qn"
-                + "&" + "redirect_uri=https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
-                "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
-                "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn",
-            type: 'GET',
-            cache: false,
-            processData: false,
-            contentType: 'application/json',
-            success: function (r) {
-            }
-        })
+
+        deleteAllCookies();
+        var glo = window.open("https://www.google.com/accounts/Logout");
+        setTimeout(function () {
+            var win = window.open('https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?redirect_uri=' +
+                'https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&response_type=token&client_id=' +
+                'uudop5ji4a930hd2ld8gio4qn');
+            setTimeout(function () {
+                glo.close();
+                window.close();
+            }, 1000);
+        },5);
+
+        // setTimeout(function () {
+        //     var glo = window.open("https://www.google.com/accounts/Logout");
+        //     setTimeout(function () {
+        //         glo.close();
+        //         window.close();
+        //     }, 3000)
+        // },3000)
+        // setTimeout(function () {
+        //     document.getElementById('logOut').click();
+        //     setTimeout(function () {
+        //         window.close();
+        //     }, 1000)
+        // }, 5000);
+
+
         // setTimeout(function () {
         //     // do log out to clear the cookie and sessions
         //     // https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html
@@ -60,22 +96,12 @@
 
     } else {
         // https://aws-serverless-web-application.readthedocs.io/en/latest/step11.html
-        var data = {
-            UserPoolId : "us-east-1_0rNuoNuc4",
-            ClientId : "uudop5ji4a930hd2ld8gio4qn"
-        };
-        var userPool = new AmazonCognitoIdentity.CognitoUserPool(data);
-        var cognitoUser = userPool.getCurrentUser();
-        console.log(cognitoUser);
-
-
         var idToken = window.location.href.split("id_token=")[1].split("&")[0];
         var accessToken = window.location.href.split("access_token=")[1].split("&")[0];
         console.log(idToken);
         console.log("access:")
         console.log(accessToken);
         // window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
-
 
         // Session
         // localStorage.setItem("id_token",idToken);
