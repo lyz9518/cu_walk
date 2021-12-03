@@ -1,0 +1,35 @@
+html,body {
+    margin-top: 0px !important;
+    height: 100%;
+    margin: 0;
+}
+#googleMap{
+    width: 100%;
+    min-height: 100%;
+    z-index: 1;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+#emergency{
+    min-height: 15%;
+    min-width: 35%;
+    z-index: 2;
+    position: absolute; 
+    top: 80%;
+    left: 10%;
+    background-color: red;
+    color: white;
+    font-size: large;
+}
+#arrived{
+    min-height: 15%;
+    min-width: 35%;
+    z-index: 2;
+    position: absolute; 
+    top: 80%;
+    left: 55%;
+    background-color: white;
+    color: black;
+    font-size: large;
+}
