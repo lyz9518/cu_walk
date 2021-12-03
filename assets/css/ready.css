@@ -1,0 +1,27 @@
+#subtitle{
+    margin:auto;
+    margin-bottom:30px;
+    border-radius: 10px;
+    height: 60px;
+    width: 20%;
+    background-color: powderblue;
+    box-shadow: 4px 4px;
+}
+
+h1{
+  color: rgb(23, 23, 216);
+  text-align: center;
+  line-height:51px;
+  vertical-align:middle;
+  margin:auto;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#container{
+    margin: auto;
+    border-radius: 25px;
+    height: 200px;
+    width: 20%;
+    background-color: powderblue;
+}

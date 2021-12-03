@@ -1,4 +1,4 @@
-#subtitle-div{
+#subtitle{
     margin:auto;
     margin-bottom:30px;
     border-radius: 10px;
@@ -8,7 +8,7 @@
     box-shadow: 4px 4px;
 }
 
-p{
+h1{
   color: rgb(23, 23, 216);
   text-align: center;
   line-height:51px;
@@ -18,7 +18,7 @@ p{
   font-weight: bold;
 }
 
-#group_div{
+#container{
     margin: auto;
     border-radius: 25px;
     height: 200px;

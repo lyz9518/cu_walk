@@ -19,7 +19,7 @@ function select_group(){
     if (selected_group_name == null){
         alert("Please select a group to continues")
     } else {
-        // API Call here
+        // TODO: API Call here
         console.log(selected_group_name);
 
         // Jump to ready page
