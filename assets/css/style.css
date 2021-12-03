@@ -14,6 +14,7 @@ body{
     background-color: transparent;
 }
 
+/* need to add mobil for container */
 #container{
     margin: auto;
     border-radius: 25px;
