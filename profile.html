@@ -3,6 +3,7 @@
   <head>
     <title>CU Walk</title>
     <!-- API Gateway SDK -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
     <script src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
     <script src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
@@ -32,7 +33,7 @@
       <img id="logo" src="./assets/picture/cu_crown.png" class="img-fluid" alt="Responsive image" style="width:140px;height:120px;">
       <br><br>
       <div>
-      <form id = "profile_form" action="javascript:update_profile()">
+      <form id = "profile_form" action="javascript:update_profile()" onload="load_existed_profile()">
         <p>
           <label for="nickname">Nickname:</label>
           <input id="nickname" placeholder="e.g. Alan" type="text">

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<body>
+    <div id="credential">
+        <label for="user_name">User:</label>
+        <p id="user_name">None</p>
+        <label for="token">Token:</label>
+        <p id="token">None</p>
+    </div>
+</body>
+</html>
+<script>
+    console.log(window.location.href);
+    var awsCongnitoAcessToken = window.location.href.split("code=")[1];
+    alert(awsCongnitoAcessToken);
+
+    // Window Session Storage
+    sessionStorage.setItem("lastname", "Smith");
+    // Retrieve
+    document.getElementById("token").innerHTML = sessionStorage.getItem("lastname");
+
+    // console.log(window.location.href.split("code=")[1]);
+    window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+    
+</script>
