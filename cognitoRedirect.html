@@ -20,10 +20,11 @@
     alert(awsCongnitoAcessToken);
 
     // Window Session Storage
-    sessionStorage.setItem("lastname", "Smith");
+    sessionStorage.setItem("user_name", );
+    sessionStorage.setItem("token", awsCongnitoAcessToken);
     // Retrieve
+    document.getElementById("user_name").innerHTML = sessionStorage.getItem("lastname");
     document.getElementById("token").innerHTML = sessionStorage.getItem("lastname");
-
     // console.log(window.location.href.split("code=")[1]);
     window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
     

@@ -33,7 +33,8 @@
       <img id="logo" src="./assets/picture/cu_crown.png" class="img-fluid" alt="Responsive image" style="width:140px;height:120px;">
       <br><br>
       <div>
-      <form id = "profile_form" action="javascript:update_profile()" onload="load_existed_profile()">
+      <!-- <form id = "profile_form" action="javascript:update_profile()" onload="load_existed_profile()"> -->
+      <form id = "profile_form" action="javascript:update_profile()">
         <p>
           <label for="nickname">Nickname:</label>
           <input id="nickname" placeholder="e.g. Alan" type="text">
@@ -55,11 +56,14 @@
           <label for="emergency_contact">Emergent Contact:</label>
           <input id="emergency_contact" placeholder="0001234567" type="text">
         </p>
+        <p>
+          <input type="submit" value="Submit" id="submit_button">
+        </p>
       </form>
 
       <br>
       <div>
-        <button id="submit_profile" type="submit" onclick="submit_profile">Submit</button>
+        <button id="submit_profile" type="submit">Submit</button>
       </div>
     </div>
 
