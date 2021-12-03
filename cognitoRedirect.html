@@ -6,6 +6,12 @@
 </head>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--<script src="js/amazon-cognito-identity.min.js"></script>-->
+<!--https://blog.csdn.net/weixin_33859844/article/details/90564893-->
+<!--<script src="https://raw.githubusercontent.com/aws/amazon-cognito-identity-js/master/dist/amazon-cognito-identity.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@5.2.3/dist/amazon-cognito-identity.min.js"></script>
+<!--<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1041.0.min.js"></script>-->
 <body>
 <div id="Username"></div>
 <div id="Email"></div>
@@ -20,33 +26,57 @@
         "+&error=invalid_request") {
         document.getElementById('Username').innerHTML = "Please use your Columbia University Email to Log In!";
         document.getElementById('redirectMessage').innerHTML = "Redirecting you to the SignIn page in 5 seconds....";
-        setTimeout(function () {
-            // do log out to clear the cookie and sessions
-            // https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html
-            $.ajax({
-                url: "https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/logout" + "?" + "client_id=uudop5ji4a930hd2ld8gio4qn"
-                    + "&" + "redirect_uri=https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
-                    "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
-                    "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn",
-                type: 'GET',
-                cache: false,
-                processData: false,
-                contentType: 'application/json',
-                success: function (r) {
-                }
-            })
-            // window.location.assign("https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
-            //     "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
-            //     "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn");
-        }, 5000);
+        $.ajax({
+            url: "https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/logout" + "?" + "client_id=uudop5ji4a930hd2ld8gio4qn"
+                + "&" + "redirect_uri=https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
+                "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
+                "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn",
+            type: 'GET',
+            cache: false,
+            processData: false,
+            contentType: 'application/json',
+            success: function (r) {
+            }
+        })
+        // setTimeout(function () {
+        //     // do log out to clear the cookie and sessions
+        //     // https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html
+        //     $.ajax({
+        //         url: "https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/logout" + "?" + "client_id=uudop5ji4a930hd2ld8gio4qn"
+        //             + "&" + "redirect_uri=https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
+        //             "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
+        //             "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn",
+        //         type: 'GET',
+        //         cache: false,
+        //         processData: false,
+        //         contentType: 'application/json',
+        //         success: function (r) {
+        //         }
+        //     })
+        //     // window.location.assign("https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
+        //     //     "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
+        //     //     "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn");
+        // }, 5000);
 
     } else {
+        // https://aws-serverless-web-application.readthedocs.io/en/latest/step11.html
+        var data = {
+            UserPoolId : "us-east-1_0rNuoNuc4",
+            ClientId : "uudop5ji4a930hd2ld8gio4qn"
+        };
+        var userPool = new AmazonCognitoIdentity.CognitoUserPool(data);
+        var cognitoUser = userPool.getCurrentUser();
+        console.log(cognitoUser);
+
+
         var idToken = window.location.href.split("id_token=")[1].split("&")[0];
         var accessToken = window.location.href.split("access_token=")[1].split("&")[0];
         console.log(idToken);
         console.log("access:")
         console.log(accessToken);
-        window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+        // window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+
+
         // Session
         // localStorage.setItem("id_token",idToken);
         // console.log(localStorage.getItem("id_token"));
