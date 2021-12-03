@@ -38,21 +38,29 @@
       </div>
       <div id="container">
         <form id = "profile_form" action="javascript:update_profile()" onload="load_existed_profile()">
-          <label for="nickname">Nickname:</label><br><br>
-          <input id="nickname" placeholder="e.g. Alan" type="text">
-          <label for="gender">Gender:</label><br><br>
+          <p>
+            <label for="nickname">Nickname:</label>
+            <input id="nickname" placeholder="e.g. Alan" type="text"><br><br><br>
+          </p>
+          <p>
+          <label for="gender">Gender:</label>
           <select id="gender" placeholder="e.g. Alan" type="text">
             <option>Select Order</option>
             <option value="male">Male</option>  
             <option value="female">Female</option>  
             <option value="others">Others</option>  
           </select>
-          <label for="phone_num">Phone Number:</label><br><br>
-          <input id="phone_num" placeholder="0001234567" type="text">
-          <label for="emergency_contact">Emergent Contact:</label><br><br>
-          <input id="emergency_contact" placeholder="0001234567" type="text">
-          <input type="submit" value="Submit" id="submit_button">
           </p>
+          <
+          <label for="phone_num">Phone Number:</label>
+          <input id="phone_num" placeholder="0001234567" type="text">
+          </p>
+          <p>
+          <label for="emergency_contact">Emergent Contact:</label>
+          <input id="emergency_contact" placeholder="0001234567" type="text">
+          </p>
+      </div>
+          <input type="submit" value="Submit" id="submit_button">
         </form>
       <br>
     </div>
