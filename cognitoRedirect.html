@@ -17,17 +17,17 @@
 <div id="Username"></div>
 <div id="Email"></div>
 <div id="redirectMessage"></div>
-<a href="https://www.google.com/accounts/Logout"
-   onclick="myIFrame.location='https://www.google.com/accounts/Logout';StartPollingForCompletion();return false;"
-   style="visibility: hidden" id="logOut" target="_blank">
-    log out</a>
-<iframe id="myIFrame" style="visibility: hidden"></iframe>
+<!--<a href="https://www.google.com/accounts/Logout"-->
+<!--   onclick="myIFrame.location='https://www.google.com/accounts/Logout';StartPollingForCompletion();return false;"-->
+<!--   style="visibility: hidden" id="logOut" target="_blank">-->
+<!--    log out</a>-->
+<!--<iframe id="myIFrame" style="visibility: hidden"></iframe>-->
+
 </body>
 </html>
 <script>
     // https://stackoverflow.com/questions/179355/clearing-all-cookies-with-javascript
     function deleteAllCookies() {
-
         var cookies = document.cookie.split(";");
         console.log(cookies)
         for (var i = 0; i < cookies.length; i++) {
@@ -52,14 +52,15 @@
         var win = window.open('https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?redirect_uri=' +
             'https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&response_type=token&client_id=' +
             'uudop5ji4a930hd2ld8gio4qn');
-        var wait = window.open("https://6998frontendtest.s3.amazonaws.com/wait.html");
+        var wait = window.open("https://6998frontendtest.s3.amazonaws.com/lionmailcheckwait.html");
         setTimeout(function () {
+            glo.close();
+            wait.close();
             setTimeout(function () {
-                glo.close();
                 window.close();
-                wait.close();
-            }, 5000);
-        },5);
+            }, 5)
+        }, 5000);
+
         // setTimeout(function () {
         //     // do log out to clear the cookie and sessions
         //     // https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html
