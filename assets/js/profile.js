@@ -27,10 +27,28 @@ function load_existing_profile(){
         document.getElementById("phone_num").placeholder = "";
         document.getElementById("emergency_contact").placeholder = "";
     } else {
-        
         document.getElementById("nickname").placeholder = nickname;
         document.getElementById("gender").placeholder = gender;
         document.getElementById("phone_num").placeholder = phone_num;
         document.getElementById("emergency_contact").placeholder = emergency_contact;
     }
 }
+
+// function update_profile(){
+//     console.log("123244321");
+//     $.ajax({
+//         // url: "https://szi6xpfx7g.execute-api.us-east-1.amazonaws.com/put_v2_test/upload?" +
+//         //     "custom_label=" + custom_label + "&file_name=" + file_name + "&ContentEncoding=base64",
+//         url:"https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login",  
+//         type: 'GET',
+//         headers: {'Content-Type': "application/json"},
+//         // data: fileBody,
+//         // cache: false,
+//         // dataType: 'html',
+//         // processData: false,
+//         contentType: "application/json",
+//         success: function (r) {
+//             console.log(r)
+//         }
+//     })
+// }

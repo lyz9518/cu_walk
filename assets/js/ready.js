@@ -45,3 +45,4 @@ function cancel(){
     //Jump to request_trip.html
     window.location.href = "request_trip.html";
 }
+
