@@ -5,27 +5,109 @@
     <title>Title</title>
 </head>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--<script src="js/amazon-cognito-identity.min.js"></script>-->
+<!--https://blog.csdn.net/weixin_33859844/article/details/90564893-->
+<!--<script src="https://raw.githubusercontent.com/aws/amazon-cognito-identity-js/master/dist/amazon-cognito-identity.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@5.2.3/dist/amazon-cognito-identity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<!--<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1041.0.min.js"></script>-->
 <body>
-    <div id="credential">
-        <label for="user_name">User:</label>
-        <p id="user_name">None</p>
-        <label for="token">Token:</label>
-        <p id="token">None</p>
-    </div>
+<div id="Username"></div>
+<div id="Email"></div>
+<div id="redirectMessage"></div>
+<!--<a href="https://www.google.com/accounts/Logout"-->
+<!--   onclick="myIFrame.location='https://www.google.com/accounts/Logout';StartPollingForCompletion();return false;"-->
+<!--   style="visibility: hidden" id="logOut" target="_blank">-->
+<!--    log out</a>-->
+<!--<iframe id="myIFrame" style="visibility: hidden"></iframe>-->
+
 </body>
 </html>
 <script>
-    console.log(window.location.href);
-    var awsCongnitoAcessToken = window.location.href.split("code=")[1];
-    alert(awsCongnitoAcessToken);
+    // https://stackoverflow.com/questions/179355/clearing-all-cookies-with-javascript
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
+        console.log(cookies)
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
 
-    // Window Session Storage
-    sessionStorage.setItem("user_name", );
-    sessionStorage.setItem("token", awsCongnitoAcessToken);
-    // Retrieve
-    document.getElementById("user_name").innerHTML = sessionStorage.getItem("lastname");
-    document.getElementById("token").innerHTML = sessionStorage.getItem("lastname");
-    // console.log(window.location.href.split("code=")[1]);
-    window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
-    
+    // https://github.com/amazon-archives/amazon-cognito-auth-js/issues/68
+    // https://stackoverflow.com/questions/10812628/open-a-new-tab-in-the-background
+    console.log(window.location.href);
+    if (window.location.href ===
+        "https://6998frontendtest.s3.amazonaws.com/cognitoRedirect.html#" +
+        "error_description=PreSignUp+failed+with+error+Please_use_Email_of_Columbia_University_to_log_in." +
+        "+&error=invalid_request") {
+        document.getElementById('Username').innerHTML = "Please use your Columbia University Email to Log In!";
+        document.getElementById('redirectMessage').innerHTML = "Redirecting you to the SignIn page in a few seconds....";
+        deleteAllCookies();
+        var glo = window.open("https://www.google.com/accounts/Logout");
+        var win = window.open('https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?redirect_uri=' +
+            'https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&response_type=token&client_id=' +
+            'uudop5ji4a930hd2ld8gio4qn');
+        var wait = window.open("https://6998frontendtest.s3.amazonaws.com/lionmailcheckwait.html");
+        setTimeout(function () {
+            glo.close();
+            wait.close();
+            setTimeout(function () {
+                window.close();
+            }, 5)
+        }, 5000);
+
+        // setTimeout(function () {
+        //     // do log out to clear the cookie and sessions
+        //     // https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html
+        //     $.ajax({
+        //         url: "https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/logout" + "?" + "client_id=uudop5ji4a930hd2ld8gio4qn"
+        //             + "&" + "redirect_uri=https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
+        //             "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
+        //             "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn",
+        //         type: 'GET',
+        //         cache: false,
+        //         processData: false,
+        //         contentType: 'application/json',
+        //         success: function (r) {
+        //         }
+        //     })
+        //     // window.location.assign("https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?" +
+        //     //     "redirect_uri=https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&" +
+        //     //     "response_type=token&client_id=uudop5ji4a930hd2ld8gio4qn");
+        // }, 5000);
+
+    } else {
+        // https://aws-serverless-web-application.readthedocs.io/en/latest/step11.html
+        var idToken = window.location.href.split("id_token=")[1].split("&")[0];
+        var accessToken = window.location.href.split("access_token=")[1].split("&")[0];
+        console.log(idToken);
+        console.log("access:")
+        console.log(accessToken);
+        window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+        // Session
+        // localStorage.setItem("id_token",idToken);
+        // console.log(localStorage.getItem("id_token"));
+
+
+        // $.ajax({
+        //     url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
+        //     headers: {"Token": idToken},
+        //     type: 'GET',
+        //     cache: false,
+        //     processData: false,
+        //     contentType: 'application/json',
+        //     success: function (r) {
+        //         document.getElementById('Username').innerHTML = "Username: " + r.Username;
+        //         document.getElementById('Email').innerHTML = "Email: " + r.Email;
+        //         window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+        //         console.log(r);
+        //     }
+        // })
+    }
+
 </script>

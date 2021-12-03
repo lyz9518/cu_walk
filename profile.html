@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>CU Walk</title>
     <!-- API Gateway SDK -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -17,56 +17,128 @@
     <script src="./assets/js/sdk/apigClient.js"></script>
     <script src="./assets/js/profile.js"></script>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/profile.css">
-  </head>
-  <body>
-  <!-- <body> -->
-    <header>
+</head>
+<body>
+<!-- <body> -->
+<header>
 
-    </header>
+</header>
 
-
+<br><br>
+<button onclick="signOut()">
+    sign out
+</button>
+<div class="text-center">
+    <img id="logo" src="./assets/picture/cu_crown.png" class="img-fluid" alt="Responsive image"
+         style="width:140px;height:120px;">
     <br><br>
-
-    <div class ="text-center">
-      <img id="logo" src="./assets/picture/cu_crown.png" class="img-fluid" alt="Responsive image" style="width:140px;height:120px;">
-      <br><br>
-      <div id="subtitle">
+    <div id="subtitle">
         <h1>Modify Your Profile</h1>
-      </div>
-      <div id="container">
-        <form id = "profile_form" action="javascript:update_profile()" onload="load_existed_profile()">
-          <label for="nickname">Nickname:</label><br><br>
-          <input id="nickname" placeholder="e.g. Alan" type="text">
-          <label for="gender">Gender:</label><br><br>
-          <select id="gender" placeholder="e.g. Alan" type="text">
-            <option>Select Order</option>
-            <option value="male">Male</option>  
-            <option value="female">Female</option>  
-            <option value="others">Others</option>  
-          </select>
-          <label for="phone_num">Phone Number:</label><br><br>
-          <input id="phone_num" placeholder="0001234567" type="text">
-          <label for="emergency_contact">Emergent Contact:</label><br><br>
-          <input id="emergency_contact" placeholder="0001234567" type="text">
-          <input type="submit" value="Submit" id="submit_button">
-          </p>
-        </form>
-      <br>
     </div>
+    <div id="container">
+        <form id="profile_form" action="javascript:update_profile()" onload="load_existed_profile()">
+            <p>
+                <label for="nickname">Nickname:</label>
+                <input id="nickname" placeholder="e.g. Alan" type="text">
+            </p>
+            <p>
+                <label for="gender">Gender:</label>
+                <select id="gender" placeholder="e.g. Alan" type="text">
+                    <option>Select Order</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                </select>
+            </p>
+            <label for="phone_num">Phone Number:</label>
+            <input id="phone_num" placeholder="0001234567" type="text">
+            </p>
+            <p>
+                <label for="emergency_contact">Emergent Contact:</label>
+                <input id="emergency_contact" placeholder="0001234567" type="text">
+            </p>
+    </div>
+    <input type="submit" value="Submit" id="submit_button">
+    </form>
+    <br>
+</div>
 
 
-    <footer>
+<footer>
 
-    </footer>
+</footer>
+<script>
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
+        console.log(cookies)
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
+
+    function signOut() {
+        deleteAllCookies();
+        var glo = window.open("https://www.google.com/accounts/Logout");
+        var win = window.open('https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?redirect_uri=' +
+            'https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&response_type=token&client_id=' +
+            'uudop5ji4a930hd2ld8gio4qn');
+        var wait = window.open("https://6998frontendtest.s3.amazonaws.com/signoutwait.html");
+        setTimeout(function () {
+            glo.close();
+            wait.close();
+            setTimeout(function () {
+                window.close();
+            }, 5)
+        }, 5000);
+    }
+</script>
+
+<!-- TEST script -->
+<script>
+  var idToken = "eyJraWQiOiJ4Zk9sZTU2ZG5kTmNNUXY5eVMyeTAxeFFLM251TXFtakJZQlhmbkJVUFFrPSIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiZlJySmhwQ3RIZ2RlTjhzWmZjeEJ1ZyIsInN1YiI6ImIwMmUzZmQ5LTQzYTYtNDhiNS04YTJmLWE5NzdlNDE0NWQ1NCIsImF1ZCI6InV1ZG9wNWppNGE5MzBoZDJsZDhnaW80cW4iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2Mzg1MDE0NzMsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzByTnVvTnVjNCIsImNvZ25pdG86dXNlcm5hbWUiOiJxcSIsImV4cCI6MTYzODUwNTA3MywiaWF0IjoxNjM4NTAxNDczLCJqdGkiOiJiMjUxY2E2Ni01MGJjLTQwMGItODNkMy01MGRlZTkyMzlhMTQiLCJlbWFpbCI6InFxNzI4OTc3ODYyQGdtYWlsLmNvbSJ9.elsImfgVJ33uCtSVvdRcdVIv_IheeSbVX9cC7sJXRWUe_E6ukOrNAKn9Cl9JvqnGbbD6YciqYn4P0HALc4-R2fmkEvjuovcBN9acewz3k9sPesY7EOo3JTbYeFa6CX-OKpPdzy71xZ-aQvvbH1dYqJszCLgl699dOy8rUqvt5sw2ncDcNQkXpf28ISuffXQCHLhM1LCFaNdmjwKTDywZnkOTLoRBuFrVxr1LMZbmaeWJ2sMaSahMvScH1n6ern9zQiBuV6SoZBko0KhLUOrj0prvz9Q3C3ffOKaVbC-mog5Kq_Y_lglj2m3Si6HTHhpDd-HRNsgR_znn3LVPwdY1hg";
+  var accessToken = "eyJraWQiOiI4UkY1TDZtdEhGQlBFRkNaSFFPeGxFY2p6azVIVGNaQWZ6a1lLUG9LS3VzPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiMDJlM2ZkOS00M2E2LTQ4YjUtOGEyZi1hOTc3ZTQxNDVkNTQiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIHBob25lIG9wZW5pZCBwcm9maWxlIGVtYWlsIiwiYXV0aF90aW1lIjoxNjM4NTAxNDczLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV8wck51b051YzQiLCJleHAiOjE2Mzg1MDUwNzMsImlhdCI6MTYzODUwMTQ3MywidmVyc2lvbiI6MiwianRpIjoiZmZhN2ZiNWUtOTVlNC00OGMzLThkNzktYjcxZDU3OGE4NTc0IiwiY2xpZW50X2lkIjoidXVkb3A1amk0YTkzMGhkMmxkOGdpbzRxbiIsInVzZXJuYW1lIjoicXEifQ.j9vpIvohYb0ZCs3JFgajViuT4DB-FB90LwsN_kekmzBKOnyQwBXNDDXeEcRdPLiGJel2deY7vxW-kituYeDBbyI_OspQi8a81umIXguvT1tJUjcLIgeQhivHc1cFj77Vrp-wa6x-uvGiOaCAzF2ZMgTl5d1cT-ngekSMsZq5d6lp19oNaaR-R993Nt89hQ7mFiOLwV4w_8YW0kY8_h3wK225XgmfU6qIw8W9D9p3lqRAi_eD1RhDL7BMuezxmlpmX5vgSLPuIVtKaLkzZc_CSbRkiYjQ3W9kVPheKWt6c9yAYf8_3pDuVyuhwJZImrWtyC_yaqAcGV0HNUt0Fr8wXA";
+  var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
+  
+  var body = {
+    nickname: "TEST",
+    gender: "male",
+    phone_num: "9491234567",
+    emergency_contact: "9499876543"
+  } 
+  
+  $.ajax({
+    url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
+    headers: {"Token": idToken},
+    type: 'GET',
+    cache: false,
+    processData: false,
+    contentType: 'application/json',
+    success: function (r) {
+      // document.getElementById('Username').innerHTML = "Username: " + r.Username;
+      // document.getElementById('Email').innerHTML = "Email: " + r.Email;
+      // window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+      console.log(r);
+    }
+  })
+</script>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./assets/js/myjs.js"></script>
 
 
-  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="./assets/js/myjs.js"></script>
+
+
+</body>
 </html>
