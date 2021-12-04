@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/profile.css">
 </head>
-<body>
+<body  onload="load_existed_profile()">
 <!-- <body> -->
 <header>
 
@@ -41,7 +41,7 @@
         <h1>Modify Your Profile</h1>
     </div>
     <div id="container">
-        <form id="profile_form" action="javascript:update_profile()" onload="load_existed_profile()">
+        <form id="profile_form" action="javascript:update_profile()">
             <p>
                 <label for="nickname">Nickname:</label>
                 <input id="nickname" placeholder="e.g. Alan" type="text">
