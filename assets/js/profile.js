@@ -46,20 +46,38 @@ function update_profile(){
         "emergency_contact": emergency_contact
        })
 
+    // $.ajax({
+    //     url: API_addr + "?accessToken=" + accessToken,
+    //     // url: API_addr,
+    //     headers: {"Token": idToken},
+    //     type: 'POST',
+    //     data: body,
+    //     // cache: false,
+    //     // processData: false,
+    //     contentType: 'application/json',
+    //     success: function (r) {
+    //         console.log(r);
+    //         console.log("YESSS");
+    //         // alert("Personal profile has been recorded.");
+    //     }
+    // })
+
+
+
     $.ajax({
-        url: API_addr + "?accessToken=" + accessToken,
-        // url: API_addr,
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
-        type: 'POST',
-        data: body,
-        // cache: false,
-        // processData: false,
+        type: 'GET',
+        cache: false,
+        processData: false,
         contentType: 'application/json',
         success: function (r) {
+            document.getElementById('Username').innerHTML = "Username: " + r.Username;
+            document.getElementById('Email').innerHTML = "Email: " + r.Email;
+            window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
             console.log(r);
-            console.log("YESSS");
-            // alert("Personal profile has been recorded.");
         }
     })
+
     // window.location.href = "request_trip.html";
 }
