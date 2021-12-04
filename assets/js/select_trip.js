@@ -25,7 +25,7 @@ function load_groups(){
             console.log("Groups loaded");
             var res = JSON.stringify(r);
             res = JSON.parse(res);
-            alert(res.length);
+            alert(JSON.stringify(r));
             // Hide the Loading text
             document.getElementById("loading_text").style.display = "none";
 
