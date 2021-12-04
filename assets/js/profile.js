@@ -46,19 +46,21 @@ function update_profile(){
 
     var idToken = localStorage.getItem("idToken");
     var accessToken = localStorage.getItem("accessToken");
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login";
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
     
-    var body = {
-        nickname: "TEST",
-        gender: "male",
-        phone_num: "9491234567",
-        emergency_contact: "9499876543"
-    } 
-    
+    var body = JSON.stringify({
+        "name": nickname,
+        "gender": gender,
+        "cellphone": phone_num,
+        "emergency_contact": emergency_contact
+       })
+
     $.ajax({
         url: API_addr + "?accessToken=" + accessToken,
+        // url: API_addr,
         headers: {"Token": idToken},
-        type: 'GET',
+        type: 'POST',
+        data: body,
         // cache: false,
         // processData: false,
         contentType: 'application/json',
