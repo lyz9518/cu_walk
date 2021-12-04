@@ -53,36 +53,47 @@ function update_profile(){
     var phone_num = document.getElementById("phone_num").value;
     var emergency_contact = document.getElementById("emergency_contact").value;
 
+    if (nickname == null){
+        alert("Please enter your nickname");
+    } else if (gender == null) {
+        alert("Please select your gender");
+    } else if (phone_num == null) {
+        alert("Please enter your cellphone number");
+    } else if (emergency_contact == null) {
+        alert("Please enter your emergency_contact");
+    } else {
+        console.log("Profile API is working");
 
-    console.log("Profile API is working");
+        var idToken = localStorage.getItem("idToken");
+        var accessToken = localStorage.getItem("accessToken");
+        
+        
+        var body = JSON.stringify({
+            "name": nickname,
+            "gender": gender,
+            "cellphone": phone_num,
+            "emergency_contact": emergency_contact
+        })
 
-    var idToken = localStorage.getItem("idToken");
-    var accessToken = localStorage.getItem("accessToken");
+
+        var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
+
+        $.ajax({
+            url: API_addr + "?accessToken=" + accessToken,
+            headers: {"Token": idToken},
+            type: 'POST',
+            data: body,
+            cache: false,
+            processData: false,
+            contentType: 'application/json',
+            success: function (r) {
+                console.log(r);
+                alert("User profile saved");
+            }
+        })
+
+        window.location.assign("request_trip.html");
+    }
+
     
-    
-    var body = JSON.stringify({
-        "name": nickname,
-        "gender": gender,
-        "cellphone": phone_num,
-        "emergency_contact": emergency_contact
-    })
-
-
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
-
-    $.ajax({
-        url: API_addr + "?accessToken=" + accessToken,
-        headers: {"Token": idToken},
-        type: 'POST',
-        data: body,
-        cache: false,
-        processData: false,
-        contentType: 'application/json',
-        success: function (r) {
-            console.log(r);
-            alert("User profile saved");
-        }
-    })
-
-    window.location.assign("request_trip.html");
 }
