@@ -6,6 +6,9 @@ var accessToken = localStorage.getItem("accessToken");
 var time = null;
 var departure = null;
 var destination = null;
+var lat = null;
+var lng = null;
+
 
 function request_trip(){
     time = document.getElementById("time").value;
@@ -25,8 +28,8 @@ function request_trip(){
             url: url,
             success: function(data) {
                 var result = data.results[0];
-                var lat = result.geometry.location.lat;
-                var lng = result.geometry.location.lng;
+                lat = result.geometry.location.lat;
+                lng = result.geometry.location.lng;
                 console.log(lat);
                 console.log(lng);
                 console.log(time);
