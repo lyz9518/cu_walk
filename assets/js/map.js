@@ -37,6 +37,13 @@ var lng1;
 
 // var x = document.getElementById("demo");
 
+const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+  
+var marker = new google.maps.Marker({
+    position: myLatLng, map, icon: image,//title: "Hello World!",
+});
+
 // function getLocation() {
 if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showPosition);
@@ -45,21 +52,13 @@ if (navigator.geolocation) {
 }
 // }
 
-
-const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-  
-
 function showPosition(position) {
     // x.innerHTML="Latitude: " + position.coords.latitude + 
     // "<br>Longitude: " + position.coords.longitude;
     lat1 = position.coords.latitude;
     lng1 = position.coords.longitude;
-
     myLatLng = {lat: lat1, lng: lng1};
-    var marker = new google.maps.Marker({
-        position: myLatLng, map, icon: image,//title: "Hello World!",
-    });
+    marker.setPosition(myLatLng);
 }
 
 
