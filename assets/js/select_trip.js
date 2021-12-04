@@ -32,7 +32,7 @@ function load_groups(){
             for (i=0; i<res.length; i++){
                 // Load Groups info from API response
                 var group_info = res[i]["body"];
-                var teammates = group_info["teammates"]; // Not used at the moment. Prob will use later??
+                // var teammates = group_info["teammates"]; // Not used at the moment. Prob will use later??
                 var time = group_info["time"];
                 var departure = group_info["departure"];
                 var team_size = group_info["team_size"];
