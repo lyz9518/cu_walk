@@ -30,18 +30,38 @@ directionsService.route(request, function (result, status) {
     directionsDisplay.setDirections(result);
 });
 
-new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Hello World!",
+myLatLng = {lat: 40.8114424, lng: -73.9587781};
+var marker = new google.maps.Marker({
+    position: myLatLng, map, title: "Hello World!",
 });
 
-var mainLoopId = setInterval(function () {
+var myLatLngList = [
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+]
 
-    var myLatLng = {lat: 40.8105964, lng: -73.95830099999999};
-    new google.maps.Marker({
-        position: myLatLng, map, title: "Hello World!",
-    });
+var index = 0;
+var mainLoopId = setInterval(function () {
+    if (index === myLatLngList.length) {
+        index = 0;
+    }
+    myLatLng = myLatLngList[index];
+    marker.setPosition(myLatLng)
+    index++;
 }, 1000);
 
 
