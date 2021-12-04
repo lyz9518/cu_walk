@@ -17,17 +17,21 @@ function load_existed_profile(){
             
             // TODO: check the flag condition
             // check if existing user and update inner value
-            if (res.isOldUser == true){
-                var nickname = res.name;
-                var gender = res.gender;
-                var phone_num = res.cellphone;
-                var emergency_contact = res.emergency_contact;
-            } else {
-                var nickname = "Lion";
-                var gender = "e.g Male";
-                var phone_num = "e.g 0103334567";
-                var emergency_contact = "e.g 9493334567";
-            }
+            // if (res.isOldUser == true){
+            //     var nickname = res.name;
+            //     var gender = res.gender;
+            //     var phone_num = res.cellphone;
+            //     var emergency_contact = res.emergency_contact;
+            // } else {
+            //     var nickname = "Lion";
+            //     var gender = "e.g Male";
+            //     var phone_num = "e.g 0103334567";
+            //     var emergency_contact = "e.g 9493334567";
+            // }
+            var nickname = "Lion";
+            var gender = "e.g Male";
+            var phone_num = "e.g 0103334567";
+            var emergency_contact = "e.g 9493334567";
             document.getElementById("nickname").placeholder = nickname;
             document.getElementById("gender").placeholder = gender;
             document.getElementById("phone_num").placeholder = phone_num;
