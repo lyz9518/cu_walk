@@ -72,9 +72,6 @@ function update_profile(){
         processData: false,
         contentType: 'application/json',
         success: function (r) {
-            document.getElementById('Username').innerHTML = "Username: " + r.Username;
-            document.getElementById('Email').innerHTML = "Email: " + r.Email;
-            window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
             console.log(r);
         }
     })
