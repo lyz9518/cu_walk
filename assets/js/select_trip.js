@@ -11,7 +11,7 @@ function load_groups(){
     var idToken = localStorage.getItem("idToken");
     var accessToken = localStorage.getItem("accessToken");
 
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/groups";
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/group";
 
     $.ajax({
         url: API_addr + "?accessToken=" + accessToken,
@@ -23,22 +23,21 @@ function load_groups(){
         success: function (r) {
             console.log(r);
             console.log("Groups loaded");
-            for (i=0; i<3; i++){
-                // Create an <input> element, set its type and name attributes
-                var input = document.createElement("input");
-                var label = document.createElement("label");
-                input.type = "checkbox";
-                input.id = "group_"+i;
-                input.name = "groups";
-                input.value = "group_"+i;
-                label.for = "group_"+i;
-                container.appendChild(input);
-                container.appendChild(label);
-                // Append a line break 
-                container.appendChild(document.createElement("br"));
-                container.appendChild(document.createElement("br"));
-            }
-
+            // for (i=0; i<3; i++){
+            //     // Create an <input> element, set its type and name attributes
+            //     var input = document.createElement("input");
+            //     var label = document.createElement("label");
+            //     input.type = "checkbox";
+            //     input.id = "group_"+i;
+            //     input.name = "groups";
+            //     input.value = "group_"+i;
+            //     label.for = "group_"+i;
+            //     container.appendChild(input);
+            //     container.appendChild(label);
+            //     // Append a line break 
+            //     container.appendChild(document.createElement("br"));
+            //     container.appendChild(document.createElement("br"));
+            // }
         }
     })
 
@@ -69,6 +68,6 @@ function select_group(){
         console.log(selected_group_name);
 
         // Jump to ready page
-        window.location.href = "ready.html";
+        // window.location.href = "ready.html";
     }
 }
