@@ -86,18 +86,8 @@
 
     function signOut() {
         deleteAllCookies();
-        var glo = window.open("https://www.google.com/accounts/Logout");
-        var win = window.open('https://lionwalkonetwo.auth.us-east-1.amazoncognito.com/login?redirect_uri=' +
-            'https%3A%2F%2F6998frontendtest.s3.amazonaws.com%2FcognitoRedirect.html&response_type=token&client_id=' +
-            'uudop5ji4a930hd2ld8gio4qn');
-        var wait = window.open("https://6998frontendtest.s3.amazonaws.com/signoutwait.html");
-        setTimeout(function () {
-            glo.close();
-            wait.close();
-            setTimeout(function () {
-                window.close();
-            }, 5)
-        }, 5000);
+        window.location.assign("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=" +
+            "https://6998frontendtest.s3.amazonaws.com/redirecttomainpage.html");
     }
 </script>
 
