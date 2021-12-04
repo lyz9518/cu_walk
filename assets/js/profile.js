@@ -14,8 +14,8 @@ function load_existed_profile(){
         success: function (r) {
             console.log(r);
             console.log(typeof r);
-            var res = JSON.parse(r);
-            
+            var res = JSON.stringify(r);
+            console.log(res);
             // TODO: check the flag condition
             // check if existing user and update inner value
             // if (res.isOldUser == true){
