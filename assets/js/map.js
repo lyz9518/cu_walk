@@ -1,5 +1,5 @@
-from_location = { lat: 40.8105964, lng: -73.95830099999999 }; //"Fu Foundation School of Engineering and Applied Science";
-to_location = "520 West 123rd St";
+from_location = { lat: 40.8114424, lng: -73.9587781 };
+to_location = { lat: 40.8105964, lng: -73.95830099999999 };
 
 var myLatLng = { lat: 40.8105964, lng: -73.95830099999999 };
 var mapOptions = {
@@ -19,7 +19,7 @@ directionsDisplay.setMap(map);
     var request = {
         origin: from_location,
         destination: to_location,
-        travelMode: google.maps.TravelMode.DRIVING, //WALKING, BYCYCLING, TRANSIT
+        travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
         unitSystem: google.maps.UnitSystem.IMPERIAL
     }
 
