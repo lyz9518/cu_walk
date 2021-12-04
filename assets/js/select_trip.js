@@ -56,7 +56,7 @@ function load_groups(){
                 form.append(label);
                 // Append a line break 
                 form.append(document.createElement("br"));
-                form.append(document.createElement("br"));ß
+                form.append(document.createElement("br"));
             }
         }
     })
