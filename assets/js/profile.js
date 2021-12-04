@@ -49,7 +49,7 @@ function update_profile(){
     $.ajax({
         url: API_addr + "?accessToken=" + accessToken,
         // url: API_addr,
-        headers: {"Token": idToken},
+        headers: JSON.stringify({"Token": idToken}),
         type: 'POST',
         data: body,
         // cache: false,
