@@ -25,10 +25,9 @@ function load_groups(){
             console.log("Groups loaded");
             var res = JSON.stringify(r);
             res = JSON.parse(res);
-            console.log(typeof res);
 
             // Hide the Loading text
-            document.getElementById("loading_text").style.display = "block";
+            document.getElementById("loading_text").style.display = "none";
 
             for (i=0; i<res.length; i++){
                 // Load Groups info from API response
