@@ -26,23 +26,29 @@ function load_groups(){
             var res = JSON.stringify(r);
             console.log(res);
 
-            // for (i=0; i<res.length; i++){
-            //     // Create an <input> element, set its type and name attributes
-            //     var group_info = res[i]["body"];
-            //     var first_user_coordinate = group_info["first_user_coordinate"];
-            //     var input = document.createElement("input");
-            //     var label = document.createElement("label");
-            //     input.type = "checkbox";
-            //     input.id = first_user_coordinate
-            //     input.name = "groups";
-            //     input.value = 
-            //     label.for = first_user_coordinate
-            //     container.appendChild(input);
-            //     container.appendChild(label);
-            //     // Append a line break 
-            //     container.appendChild(document.createElement("br"));
-            //     container.appendChild(document.createElement("br"));
-            // }
+            for (i=0; i<res.length; i++){
+                // Load Groups info from API response
+                var group_info = res[i]["body"];
+                var teammates = group_info["teammates"]; // Not used at the moment. Prob will use later??
+                var time = group_info["time"];
+                var departure = group_info["departure"];
+                var team_size = group_info["team_size"];
+                var first_user_coordinate = group_info["first_user_coordinate"];
+
+                var input = document.createElement("input");
+                var label = document.createElement("label");
+                
+                input.type = "checkbox";
+                input.id = first_user_coordinate
+                input.name = "groups";
+                input.value = time + departure + "Group Size:(" + team_size + ")"
+                label.for = first_user_coordinate
+                container.appendChild(input);
+                container.appendChild(label);
+                // Append a line break 
+                container.appendChild(document.createElement("br"));
+                container.appendChild(document.createElement("br"));
+            }
         }
     })
 
