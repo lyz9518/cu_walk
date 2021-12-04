@@ -54,12 +54,12 @@ function submit_button(){
     
     // TODO: Add real data to body here
     var body = JSON.stringify({
-        "time": "",
-        "departure": "",
-        "destination": "",
+        "time": "18:00",
+        "departure": "ABC",
+        "destination": "DEF",
     })
 
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
 
     $.ajax({
         url: API_addr + "?accessToken=" + accessToken,
