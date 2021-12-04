@@ -59,13 +59,12 @@ function load_existed_profile(){
     
     
     var body = JSON.stringify({
-        "name": nickname,
-        "gender": gender,
-        "cellphone": phone_num,
-        "emergency_contact": emergency_contact
+        "time": "18:00",
+        "departure": "HALL",
+        "destination": "HOME"
        })
 
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
 
     $.ajax({
         url: API_addr + "?accessToken=" + accessToken,
@@ -77,7 +76,7 @@ function load_existed_profile(){
         contentType: 'application/json',
         success: function (r) {
             console.log(r);
-            alert("User profile saved");
+            alert("Trip Info Stored");
         }
     })
 
