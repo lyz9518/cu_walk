@@ -9,7 +9,18 @@ function load_existing_profile(){
     var phone_num = "0123456789";
     var emergency_contact = "9876543210";
     // TODO: Profile Get API Here
-    // Assign the vars above.
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            console.log("Finally Get API is working");
+        }
+    })
 
 
     if (existing_user == false){
@@ -80,6 +91,6 @@ function update_profile(){
 
 
 
-    
+
     // window.location.href = "request_trip.html";
 }
