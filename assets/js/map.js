@@ -175,13 +175,14 @@ function showPosition(position) {
 
 // var input2 = document.getElementById("to");
 // var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
-var idToken = localStorage.getItem("idToken");
-var accessToken = localStorage.getItem("accessToken");
+
 console.log(idToken);
 console.log(accessToken);
 
 function emergency() {
     console.log("call emergency contact");
+    var idToken = localStorage.getItem("idToken");
+    var accessToken = localStorage.getItem("accessToken");
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/emergency" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
@@ -197,6 +198,8 @@ function emergency() {
 
 function arrived() {
     console.log("arrived home");
+    var idToken = localStorage.getItem("idToken");
+    var accessToken = localStorage.getItem("accessToken");
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/arrive" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
