@@ -32,8 +32,7 @@ function load_groups(){
             for (i=0; i<res.length; i++){
                 // Load Groups info from API response
                 var group_info = res[i];
-                //TODO: change double m in the backend
-                // var teammates = group_info["teammates"]; // Not used at the moment. Prob will use later??
+                //TODO: change double m teammates in the backend
                 var time = group_info["time"];
                 var departure = group_info["departure"];
                 var team_size = group_info["team_size"];
@@ -84,9 +83,6 @@ function select_group(){
     if (selected_group_name == null){
         alert("Please select a group to continues")
     } else {
-        alert(selected_group_name);
-
-        // TODO: Add real data to body here
         var body = JSON.stringify({
             "first_user_coordinate": selected_group_name
         })
@@ -107,6 +103,6 @@ function select_group(){
             }
         })
         // Jump to ready page
-        // window.location.href = "ready.html";
+        window.location.assign = "ready.html";
     }
 }
