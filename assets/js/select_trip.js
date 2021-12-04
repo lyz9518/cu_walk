@@ -31,7 +31,7 @@ function load_groups(){
 
             for (i=0; i<res.length; i++){
                 // Load Groups info from API response
-                var group_info = res[i]["body"];
+                var group_info = res[i];
                 console.log(group_info);
                 //TODO: change double m in the backend
                 // var teammates = group_info["teammates"]; // Not used at the moment. Prob will use later??
