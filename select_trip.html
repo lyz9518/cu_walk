@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/select_trip.css">
   </head>
-  <body>
+  
+  <body onload="load_groups()">
   <!-- <body> -->
     <header>
 
@@ -34,7 +35,7 @@
         <h1>Choose Your Group</h1>
       </div>
       <div id="container">
-        <form id="group_form" name="group_form" action="javascript:select_group()" onload="load_groups()">
+        <form id="group_form" name="group_form" action="javascript:select_group()">
           <input type="checkbox" id="group_1" name="groups" value="group_1" onclick="select_one(this)">
           <label for="group_1">18:00 Thu Dec 2 2021 (1)</label><br><br>
           <input type="checkbox" id="group_2" name="groups" value="group_2" onclick="select_one(this)">

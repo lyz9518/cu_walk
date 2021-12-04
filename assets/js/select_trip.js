@@ -8,25 +8,41 @@ var selected_group_name = null;
 
 function load_groups(){
     // TODO: Get Group Info API
-    var group_form = document.getElementById("group_form");
+    var idToken = localStorage.getItem("idToken");
+    var accessToken = localStorage.getItem("accessToken");
 
-    // //TODO: pseudo-code now
-    // for (i=0; i<3; i++){
-    //     // Create an <input> element, set its type and name attributes
-    //     var input = document.createElement("input");
-    //     var label = document.createElement("label");
-    //     input.type = "checkbox";
-    //     input.id = "group_"+i;
-    //     input.name = "groups";
-    //     input.value = "group_"+i;
-    //     label.for = "group_"+i;
-    //     container.appendChild(input);
-    //     container.appendChild(label);
-    //     // Append a line break 
-    //     container.appendChild(document.createElement("br"));
-    //     container.appendChild(document.createElement("br"));
-    // }
-    
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/groups";
+
+    $.ajax({
+        url: API_addr + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: "GET",
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            console.log("Groups loaded");
+            for (i=0; i<3; i++){
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                var label = document.createElement("label");
+                input.type = "checkbox";
+                input.id = "group_"+i;
+                input.name = "groups";
+                input.value = "group_"+i;
+                label.for = "group_"+i;
+                container.appendChild(input);
+                container.appendChild(label);
+                // Append a line break 
+                container.appendChild(document.createElement("br"));
+                container.appendChild(document.createElement("br"));
+            }
+
+        }
+    })
+
+    var group_form = document.getElementById("group_form");
 }
 
 
