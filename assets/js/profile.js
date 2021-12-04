@@ -2,7 +2,7 @@
 var idToken = localStorage.getItem("idToken");
 var accessToken = localStorage.getItem("accessToken");
 
-function load_existing_profile(){
+function load_existed_profile(){
     var existing_user = false;
     var nickname = "abc";
     var gender = "Male";
@@ -10,7 +10,7 @@ function load_existing_profile(){
     var emergency_contact = "9876543210";
     // TODO: Profile Get API Here
     $.ajax({
-        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
         type: 'GET',
         cache: false,
@@ -22,7 +22,7 @@ function load_existing_profile(){
         }
     })
 
-
+    alert("onload test");
     if (existing_user == false){
         document.getElementById("nickname").placeholder = "";
         document.getElementById("gender").placeholder = "";
