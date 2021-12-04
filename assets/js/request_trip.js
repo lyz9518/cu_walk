@@ -40,13 +40,22 @@ function request_trip(){
 
 
     // TODO: Add real data to body here
+    // var body = {
+    //     "time": time,
+    //     "departure": departure,
+    //     "destination": {
+    //         "address": destination,
+    //         "latitude": lat,
+    //         "longitude": lng
+    //     }
+    // };
     var body = {
-        "time": time,
-        "departure": departure,
+        "time": "00:00 AM",
+        "departure": "school",
         "destination": {
-            "address": destination,
-            "latitude": lat,
-            "longitude": lng
+            "address": "home",
+            "latitude": 0.1234,
+            "longitude": 4.1234
         }
     };
     body = JSON.stringify(body);
