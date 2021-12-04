@@ -25,14 +25,13 @@ function load_groups(){
             console.log("Groups loaded");
             var res = JSON.stringify(r);
             res = JSON.parse(res);
-
+            alert(res.length);
             // Hide the Loading text
             document.getElementById("loading_text").style.display = "none";
 
             for (i=0; i<res.length; i++){
                 // Load Groups info from API response
                 var group_info = res[i];
-                console.log(group_info);
                 //TODO: change double m in the backend
                 // var teammates = group_info["teammates"]; // Not used at the moment. Prob will use later??
                 var time = group_info["time"];
@@ -47,7 +46,7 @@ function load_groups(){
                 input.id = first_user_coordinate
                 input.name = "groups";
                 label.innerHTML = "  " + time + "/ " + departure + "/ " + "Group Size: (" + team_size + ")"
-                label.for = first_user_coordinate;
+                label.htmlFor = first_user_coordinate;
 
                 var form = document.getElementById("group_form");
                 console.log(form);
