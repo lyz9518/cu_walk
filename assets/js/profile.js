@@ -31,10 +31,11 @@ function load_existed_profile(){
             //     var phone_num = "e.g 0103334567";
             //     var emergency_contact = "e.g 9493334567";
             // }
-            var nickname = "e.g Lion";
-            var gender = "e.g Male";
-            var phone_num = "e.g 0103334567";
-            var emergency_contact = "e.g 9493334567";
+            res = JSON.parse(res);
+            var nickname = res['name']['S'];
+            var gender = res['gender']['S'];
+            var phone_num = res['cellphone']['N'];
+            var emergency_contact = res['emergency_contact']['N'];
             document.getElementById("nickname").placeholder = nickname;
             document.getElementById("gender").placeholder = gender;
             document.getElementById("phone_num").placeholder = phone_num;
