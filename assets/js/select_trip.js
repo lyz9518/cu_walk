@@ -45,8 +45,8 @@ function load_groups(){
                 input.type = "checkbox";
                 input.id = first_user_coordinate
                 input.name = "groups";
-                input.onclick = select_one(this);
-                $(input).click( function() { alert("YES"); }; )
+                // input.onclick = select_one(this);
+                $(input).click( function() { alert("YES"); } );
                 label.innerHTML = "  " + time + "/ " + departure + "/ " + "Group Size: (" + team_size + ")"
                 label.htmlFor = first_user_coordinate;
 
@@ -56,7 +56,7 @@ function load_groups(){
                 form.append(label);
                 // Append a line break 
                 form.append(document.createElement("br"));
-                form.append(document.createElement("br"));
+                form.append(document.createElement("br"));ß
             }
         }
     })
