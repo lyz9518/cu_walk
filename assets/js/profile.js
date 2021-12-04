@@ -13,6 +13,7 @@ function load_existed_profile(){
         contentType: 'application/json',
         success: function (r) {
             console.log(r);
+            console.log(typeof r);
             var res = JSON.parse(r);
             
             // TODO: check the flag condition
