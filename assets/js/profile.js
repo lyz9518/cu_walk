@@ -94,3 +94,34 @@ function update_profile(){
 
     // window.location.href = "request_trip.html";
 }
+
+
+function login_get_test(){
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            console.log("Login Get test");
+        }
+    })
+}
+
+function profile_get_test(){
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            console.log("Profile get test");
+        }
+    })
+}
