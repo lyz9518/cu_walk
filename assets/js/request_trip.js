@@ -6,8 +6,7 @@ var accessToken = localStorage.getItem("accessToken");
 var time = null;
 var departure = null;
 var destination = null;
-var lat = null;
-var lng = null;
+
 function request_trip(){
     time = document.getElementById("time").value;
     departure = document.getElementById("departure").value;
@@ -26,8 +25,8 @@ function request_trip(){
             url: url,
             success: function(data) {
                 var result = data.results[0];
-                lat = result.geometry.location.lat;
-                lng = result.geometry.location.lng;
+                var lat = result.geometry.location.lat;
+                var lng = result.geometry.location.lng;
                 console.log(lat);
                 console.log(lng);
                 console.log(time);
@@ -40,26 +39,16 @@ function request_trip(){
 
 
     // TODO: Add real data to body here
-    // var body = {
-    //     "time": time,
-    //     "departure": departure,
-    //     "destination": {
-    //         "address": destination,
-    //         "latitude": lat,
-    //         "longitude": lng
-    //     }
-    // };
-    var body = {
-        "time": "00:00 AM",
-        "departure": "school",
+    var body = JSON.stringify({
+        "time": "18:00",
+        "departure": "ABC",
         "destination": {
-            "address": "home",
-            "latitude": 0.1234,
-            "longitude": 4.1234
+            "address":"DEF",
+            "latitude":0.1234,
+            "longitude":4.1234
         }
-    };
-    body = JSON.stringify(body);
-    console.log(body);
+    })
+
     var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
 
     $.ajax({
