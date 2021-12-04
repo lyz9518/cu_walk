@@ -1,7 +1,5 @@
 // https://stackoverflow.com/questions/5865089/simple-javascript-loop-that-repeats-each-second/28107143
-var mainLoopId = setInterval(function () {
-    // Do your update stuff...
-}, 40);
+
 var myLatLng = {lat: 40.8114424, lng: -73.9587781};
 
 var from_location = {lat: 40.8114424, lng: -73.9587781};
@@ -18,11 +16,6 @@ var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 directionsDisplay.setMap(map);
 
-
-new google.maps.Marker({
-    position: myLatLng, map, title: "Hello World!",
-});
-
 // function calcRoute() {
 // create request
 
@@ -36,6 +29,41 @@ directionsService.route(request, function (result, status) {
     //display route
     directionsDisplay.setDirections(result);
 });
+
+myLatLng = {lat: 40.8114424, lng: -73.9587781};
+var marker = new google.maps.Marker({
+    position: myLatLng, map, title: "Hello World!",
+});
+
+var myLatLngList = [
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+    {lat: 40.8105964, lng: -73.95830099999999},
+    {lat: 40.8114424, lng: -73.9587781},
+]
+
+var index = 0;
+var mainLoopId = setInterval(function () {
+    if (index === myLatLngList.length) {
+        index = 0;
+    }
+    myLatLng = myLatLngList[index];
+    marker.setPosition(myLatLng)
+    index++;
+}, 1000);
+
 
 
 // // function calcRoute() {
