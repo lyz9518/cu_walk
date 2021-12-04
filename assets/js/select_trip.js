@@ -68,6 +68,6 @@ function select_group(){
         console.log(selected_group_name);
 
         // Jump to ready page
-        window.location.href = "ready.html";
+        // window.location.href = "ready.html";
     }
 }
