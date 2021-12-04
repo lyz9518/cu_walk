@@ -49,7 +49,7 @@ function load_groups(){
                 label.innerHTML = "  " + time + "/ " + departure + "/ " + "Group Size: (" + team_size + ")"
                 label.for = first_user_coordinate
 
-                var form = document.getElementById(group_form);
+                var form = document.getElementById("group_form");
                 console.log(form);
                 form.append(input);
                 form.append(label);
