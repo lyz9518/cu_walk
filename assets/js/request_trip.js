@@ -1,3 +1,7 @@
+//=========Tokens=========
+var idToken = localStorage.getItem("idToken");
+var accessToken = localStorage.getItem("accessToken");
+
 // Glabal Var
 var time = null;
 var departure = null;

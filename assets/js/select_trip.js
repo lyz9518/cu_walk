@@ -1,3 +1,8 @@
+//=========Tokens=========
+var idToken = localStorage.getItem("idToken");
+var accessToken = localStorage.getItem("accessToken");
+
+
 // Glabal Var
 var selected_group_name = null;
 
