@@ -23,7 +23,7 @@ function load_groups(){
         success: function (r) {
             console.log(r);
             console.log("Groups loaded");
-            var res = JSON.stringify(r);
+            var res = JSON.parse(r);
             var res_body = res["body"];
             var first_user_coordinate = res_body["first_user_coordinate"];
 
