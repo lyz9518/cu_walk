@@ -78,7 +78,7 @@ function update_profile(){
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
-        type: 'GET',
+        type: 'POST',
         cache: false,
         processData: false,
         contentType: 'application/json',
