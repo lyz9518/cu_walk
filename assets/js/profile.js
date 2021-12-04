@@ -3,12 +3,6 @@ var idToken = localStorage.getItem("idToken");
 var accessToken = localStorage.getItem("accessToken");
 
 function load_existed_profile(){
-    var existing_user = false;
-    var nickname = "abc";
-    var gender = "Male";
-    var phone_num = "0123456789";
-    var emergency_contact = "9876543210";
-
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
@@ -37,6 +31,8 @@ function load_existed_profile(){
             document.getElementById("gender").placeholder = gender;
             document.getElementById("phone_num").placeholder = phone_num;
             document.getElementById("emergency_contact").placeholder = emergency_contact;
+
+            alert("Old user profile loaded");
         }
     })
 }
