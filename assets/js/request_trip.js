@@ -24,3 +24,7 @@ function request_trip(){
         window.location.href = "select_trip.html";
     }
 }
+
+function edit_profile(){
+    window.location.href = "profile.html";
+}
