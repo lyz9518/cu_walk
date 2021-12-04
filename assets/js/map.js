@@ -30,39 +30,86 @@ directionsService.route(request, function (result, status) {
     directionsDisplay.setDirections(result);
 });
 
-myLatLng = {lat: 40.8114424, lng: -73.9587781};
-var marker = new google.maps.Marker({
-    position: myLatLng, map, title: "Hello World!",
-});
 
-var myLatLngList = [
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-    {lat: 40.8105964, lng: -73.95830099999999},
-    {lat: 40.8114424, lng: -73.9587781},
-]
 
-var index = 0;
-var mainLoopId = setInterval(function () {
-    if (index === myLatLngList.length) {
-        index = 0;
-    }
-    myLatLng = myLatLngList[index];
-    marker.setPosition(myLatLng)
-    index++;
-}, 1000);
+var lat1;
+var lng1;
+
+// var x = document.getElementById("demo");
+
+// function getLocation() {
+if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+} else { 
+    alert("Geolocation is not supported by this browser.");
+}
+// }
+
+
+const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+  
+
+function showPosition(position) {
+    // x.innerHTML="Latitude: " + position.coords.latitude + 
+    // "<br>Longitude: " + position.coords.longitude;
+    lat1 = position.coords.latitude;
+    lng1 = position.coords.longitude;
+
+    myLatLng = {lat: lat1, lng: lng1};
+    var marker = new google.maps.Marker({
+        position: myLatLng, map, icon: image,//title: "Hello World!",
+    });
+}
+
+
+// var myLatLngList = [
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+//     {lat: 40.8105964, lng: -73.95830099999999},
+//     {lat: 40.8114424, lng: -73.9587781},
+// ]
+
+// var index = 0;
+
+// var mainLoopId = setInterval(function () {
+//     if (index === myLatLngList.length) {
+//         index = 0;
+//     }
+//     myLatLng = myLatLngList[index];
+//     marker.setPosition(myLatLng);
+//     index++;
+
+//     // getLocation();
+//     // marker.setPosition({lat: 40.6129554, lng: -73.9987435});
+// }, 1000);
+
+
+
+
+
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.watchPosition(showPosition);
+//         lat = position.coords.latitude
+//         lng = position.coords.longitude
+//     }else { 
+//         alert("Geolocation is not supported by this browser.");
+//     }
+// }
+
 
 
 

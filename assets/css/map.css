@@ -33,3 +33,14 @@ html,body {
     color: black;
     font-size: large;
 }
+#demo{
+    min-height: 15%;
+    min-width: 35%;
+    z-index: 2;
+    position: absolute; 
+    top: 10%;
+    left: 55%;
+    background-color: white;
+    color: black;
+    font-size: large;
+}
