@@ -6,7 +6,7 @@ var accessToken = localStorage.getItem("accessToken");
 var time = null;
 var departure = null;
 var destination = null;
-// TODO: Implement API call
+
 function request_trip(){
     time = document.getElementById("time").value;
     departure = document.getElementById("departure").value;
@@ -45,4 +45,36 @@ function request_trip(){
 function edit_profile(){
     // window.location.href = "profile.html";
     window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+}
+
+function submit_button(){
+    var idToken = localStorage.getItem("idToken");
+    var accessToken = localStorage.getItem("accessToken");
+    
+    
+    // TODO: Add real data to body here
+    var body = JSON.stringify({
+        "time": "",
+        "departure": "",
+        "destination": "",
+    })
+
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
+
+    $.ajax({
+        url: API_addr + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: 'POST',
+        data: body,
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            alert("Trip Requested!");
+        }
+    })
+
+    // TODO: uncomment the jump page code when others are ready 
+    // window.location.assign("https://6998frontendtest.s3.amazonaws.com/select_trip.html");
 }

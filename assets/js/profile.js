@@ -8,7 +8,7 @@ function load_existed_profile(){
     var gender = "Male";
     var phone_num = "0123456789";
     var emergency_contact = "9876543210";
-    // TODO: Profile Get API Here
+
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
@@ -68,6 +68,7 @@ function update_profile(){
         url: API_addr + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
         type: 'POST',
+        data: body,
         cache: false,
         processData: false,
         contentType: 'application/json',
@@ -77,5 +78,6 @@ function update_profile(){
         }
     })
 
+    // TODO: uncomment the jump page code when others are ready 
     // window.location.href = "request_trip.html";
 }
