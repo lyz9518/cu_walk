@@ -103,6 +103,6 @@ function select_group(){
             }
         })
         // Jump to ready page
-        window.location.assign = "ready.html";
+        window.location.assign("ready.html");
     }
 }

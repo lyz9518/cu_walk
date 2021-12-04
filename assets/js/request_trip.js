@@ -40,12 +40,12 @@ function request_trip(){
 
     // TODO: Add real data to body here
     var body = JSON.stringify({
-        "time": "18:00",
-        "departure": "123th Street",
+        "time": time,
+        "departure": departure,
         "destination": {
-            "address":"96th Street",
-            "latitude": -10.9393, 
-            "longitude": -37.0629
+            "address": destination,
+            "latitude": lat, 
+            "longitude": lng
         }
     })
 
@@ -73,5 +73,5 @@ function request_trip(){
 
 function edit_profile(){
     // window.location.href = "profile.html";
-    window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
+    window.location.assign("profile.html");
 }

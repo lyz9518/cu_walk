@@ -84,7 +84,5 @@ function update_profile(){
         }
     })
 
-    // TODO: uncomment the jump page code when others are ready
     window.location.assign("request_trip.html");
-    // window.location.href = "request_trip.html";
 }
