@@ -48,11 +48,12 @@ function load_groups(){
                 input.name = "groups";
                 label.innerHTML = "  " + time + "/ " + departure + "/ " + "Group Size: (" + team_size + ")"
                 label.for = first_user_coordinate
-                container.appendChild(input);
-                container.appendChild(label);
+                var form = document.getElementById(group_form);
+                form.appendChild(input);
+                form.appendChild(label);
                 // Append a line break 
-                container.appendChild(document.createElement("br"));
-                container.appendChild(document.createElement("br"));
+                form.appendChild(document.createElement("br"));
+                form.appendChild(document.createElement("br"));
             }
         }
     })
