@@ -59,11 +59,58 @@ function load_existed_profile(){
     
     
     var body = JSON.stringify({
-        "time": "18:00",
-        "departure": "HALL",
-        "destination": "HOME"
+        "name": nickname,
+        "gender": gender,
+        "cellphone": phone_num,
+        "emergency_contact": emergency_contact
        })
 
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
+
+    $.ajax({
+        url: API_addr + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: 'POST',
+        data: body,
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            alert("User profile saved");
+        }
+    })
+
+    // TODO: uncomment the jump page code when others are ready 
+    // window.location.href = "request_trip.html";
+}
+
+function update_profile(){
+
+    var nickname = document.getElementById("nickname").value;
+    var gender = document.getElementById("gender").value;
+    var phone_num = document.getElementById("phone_num").value;
+    var emergency_contact = document.getElementById("emergency_contact").value;
+
+
+    console.log("Profile API is working");
+
+    var idToken = localStorage.getItem("idToken");
+    var accessToken = localStorage.getItem("accessToken");
+    
+    
+    // var body = JSON.stringify({
+    //     "name": nickname,
+    //     "gender": gender,
+    //     "cellphone": phone_num,
+    //     "emergency_contact": emergency_contact
+    //    })
+
+    var body = JSON.stringify({
+        "time": "1800",
+        "departure": "HALL",
+        "destination": "HOME"
+    })
     var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
 
     $.ajax({
@@ -76,13 +123,10 @@ function load_existed_profile(){
         contentType: 'application/json',
         success: function (r) {
             console.log(r);
-            alert("Trip Info Stored");
+            alert("User profile saved");
         }
     })
 
     // TODO: uncomment the jump page code when others are ready 
     // window.location.href = "request_trip.html";
-}
-
-function update_profile(){
 }
