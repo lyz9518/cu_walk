@@ -3,6 +3,8 @@ var idToken = localStorage.getItem("idToken");
 var accessToken = localStorage.getItem("accessToken");
 
 function load_existed_profile(){
+
+    // Google API
     console.log("loading profile");
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
@@ -41,10 +43,9 @@ function load_existed_profile(){
             alert("Old user profile loaded");
         }
     })
-}
 
-function update_profile(){
 
+    // API Section
     var nickname = document.getElementById("nickname").value;
     var gender = document.getElementById("gender").value;
     var phone_num = document.getElementById("phone_num").value;
@@ -82,4 +83,7 @@ function update_profile(){
 
     // TODO: uncomment the jump page code when others are ready 
     // window.location.href = "request_trip.html";
+}
+
+function update_profile(){
 }
