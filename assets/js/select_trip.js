@@ -24,6 +24,7 @@ function load_groups(){
             console.log(r);
             console.log("Groups loaded");
             var res = JSON.stringify(r);
+            console.log(res);
             var res_body = res["body"];
             var first_user_coordinate = res_body["first_user_coordinate"];
 
