@@ -64,11 +64,13 @@ function load_groups(){
 
 function select_one(checkbox) {
     var checkboxes = document.getElementsByName("groups")
+    console.log(checkboxes);
     checkboxes.forEach((item) => {
         if (item !== checkbox){
             item.checked = false
-        } else{
+        } else {
             selected_group_name = item.id;
+            console.log(selected_group_name);
         }
 
     })
