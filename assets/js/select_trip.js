@@ -46,7 +46,7 @@ function load_groups(){
                 input.type = "checkbox";
                 input.id = first_user_coordinate
                 input.name = "groups";
-                input.innerHTML = time + departure + "Group Size:(" + team_size + ")"
+                label.innerHTML = time + departure + "Group Size:(" + team_size + ")"
                 label.for = first_user_coordinate
                 container.appendChild(input);
                 container.appendChild(label);
