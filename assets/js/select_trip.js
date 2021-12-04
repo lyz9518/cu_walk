@@ -11,7 +11,7 @@ function load_groups(){
     var idToken = localStorage.getItem("idToken");
     var accessToken = localStorage.getItem("accessToken");
 
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/groups";
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/group";
 
     $.ajax({
         url: API_addr + "?accessToken=" + accessToken,
