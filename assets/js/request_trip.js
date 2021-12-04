@@ -34,7 +34,7 @@ function request_trip(){
                 console.log(destination);
 
 
-                window.location.href = "select_trip.html"
+                // window.location.href = "select_trip.html"
             }
         });
     }
