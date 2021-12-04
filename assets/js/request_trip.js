@@ -41,9 +41,9 @@ function request_trip(){
     // TODO: Add real data to body here
     var body = JSON.stringify({
         "time": "18:00",
-        "departure": "ABC",
+        "departure": "123th Street",
         "destination": {
-            "address":"DEF",
+            "address":"96th Street",
             "latitude": -10.9393, 
             "longitude": -37.0629
         }
