@@ -23,22 +23,21 @@ function load_groups(){
         success: function (r) {
             console.log(r);
             console.log("Groups loaded");
-            for (i=0; i<3; i++){
-                // Create an <input> element, set its type and name attributes
-                var input = document.createElement("input");
-                var label = document.createElement("label");
-                input.type = "checkbox";
-                input.id = "group_"+i;
-                input.name = "groups";
-                input.value = "group_"+i;
-                label.for = "group_"+i;
-                container.appendChild(input);
-                container.appendChild(label);
-                // Append a line break 
-                container.appendChild(document.createElement("br"));
-                container.appendChild(document.createElement("br"));
-            }
-
+            // for (i=0; i<3; i++){
+            //     // Create an <input> element, set its type and name attributes
+            //     var input = document.createElement("input");
+            //     var label = document.createElement("label");
+            //     input.type = "checkbox";
+            //     input.id = "group_"+i;
+            //     input.name = "groups";
+            //     input.value = "group_"+i;
+            //     label.for = "group_"+i;
+            //     container.appendChild(input);
+            //     container.appendChild(label);
+            //     // Append a line break 
+            //     container.appendChild(document.createElement("br"));
+            //     container.appendChild(document.createElement("br"));
+            // }
         }
     })
 
