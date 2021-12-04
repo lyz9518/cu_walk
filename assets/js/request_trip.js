@@ -44,8 +44,8 @@ function request_trip(){
         "departure": "ABC",
         "destination": {
             "address":"DEF",
-            "latitude":0.1234,
-            "longitude":4.1234
+            "latitude": -10.9393, 
+            "longitude": -37.0629
         }
     })
 
