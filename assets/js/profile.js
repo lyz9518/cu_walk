@@ -46,35 +46,36 @@ function update_profile(){
         "emergency_contact": emergency_contact
        })
 
-    $.ajax({
-        url: API_addr + "?accessToken=" + accessToken,
-        // url: API_addr,
-        headers: {"Token": idToken},
-        type: 'POST',
-        data: body,
-        // cache: false,
-        // processData: false,
-        contentType: 'application/json',
-        success: function (r) {
-            console.log(r);
-            console.log("YESSS");
-            // alert("Personal profile has been recorded.");
-        }
-    })
-
-
-
     // $.ajax({
-    //     url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
+    //     url: API_addr + "?accessToken=" + accessToken,
+    //     // url: API_addr,
     //     headers: {"Token": idToken},
-    //     type: 'GET',
-    //     cache: false,
-    //     processData: false,
+    //     type: 'POST',
+    //     data: body,
+    //     // cache: false,
+    //     // processData: false,
     //     contentType: 'application/json',
     //     success: function (r) {
     //         console.log(r);
+    //         console.log("YESSS");
+    //         // alert("Personal profile has been recorded.");
     //     }
     // })
+
+
+
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            console.log("Finally Get API is working");
+        }
+    })
 
     // window.location.href = "request_trip.html";
 }
