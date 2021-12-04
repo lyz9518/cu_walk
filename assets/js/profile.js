@@ -3,6 +3,7 @@ var idToken = localStorage.getItem("idToken");
 var accessToken = localStorage.getItem("accessToken");
 
 function load_existed_profile(){
+    console.log("loading profile");
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
