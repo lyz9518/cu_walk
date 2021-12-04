@@ -28,7 +28,7 @@ function load_existed_profile(){
             //     var phone_num = "e.g 0103334567";
             //     var emergency_contact = "e.g 9493334567";
             // }
-            var nickname = "Lion";
+            var nickname = "e.g Lion";
             var gender = "e.g Male";
             var phone_num = "e.g 0103334567";
             var emergency_contact = "e.g 9493334567";
