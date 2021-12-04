@@ -25,11 +25,31 @@ var request = {
 }
 
 //pass the request to the route method
-directionsService.route(request, function (result, status) {
-    //display route
-    directionsDisplay.setDirections(result);
+directionsService.route(request, function (response, status) {
+    // directionsDisplay.setDirections(result);
+
+    new google.maps.DirectionsRenderer({
+        map: map,
+        directions: response,
+        suppressMarkers: true
+    });
+    var leg = response.routes[0].legs[0];
+    new google.maps.Marker({position:leg.start_location, icon:icons.start, title:"title",map: map})
+    new google.maps.Marker({position:leg.end_location, icon:icons.end, title:"title",map: map})
 });
 
+var icons = {
+    start: new google.maps.MarkerImage(
+    'http://maps.google.com/mapfiles/ms/micons/blue.png',
+    new google.maps.Size(44, 32),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(22, 32)),
+    end: new google.maps.MarkerImage(
+    'http://maps.google.com/mapfiles/ms/micons/red.png',
+    new google.maps.Size(44, 32),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(22, 32))
+};
 
 
 var lat1;
