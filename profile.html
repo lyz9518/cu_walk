@@ -99,6 +99,28 @@
     }
 </script>
 
+<!-- TEST -->
+<script>
+
+    var idToken = localStorage.getItem("idToken");
+    var accessToken = localStorage.getItem("accessToken");
+
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
+        headers: {"Token": idToken},
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+            console.log("Profile get test");
+        }
+    })
+</script>
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
