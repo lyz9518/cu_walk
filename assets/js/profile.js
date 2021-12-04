@@ -57,6 +57,7 @@ function update_profile(){
         contentType: 'application/json',
         success: function (r) {
             console.log(r);
+            console.log("YESSS");
             // alert("Personal profile has been recorded.");
         }
     })
