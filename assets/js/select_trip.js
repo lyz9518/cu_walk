@@ -68,21 +68,39 @@ function select_one(checkbox) {
         if (item !== checkbox){
             item.checked = false
         } else{
-            selected_group_name = item.value;
+            selected_group_name = item.id;
         }
 
     })
     
 }
 
-// TODO: Implement API call
 function select_group(){
     if (selected_group_name == null){
         alert("Please select a group to continues")
     } else {
-        // TODO: API Call here
         console.log(selected_group_name);
 
+        // TODO: Add real data to body here
+        var body = JSON.stringify({
+            "first_user_coordinate": selected_group_name
+        })
+
+        var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/group";
+
+        $.ajax({
+            url: API_addr + "?accessToken=" + accessToken,
+            headers: {"Token": idToken},
+            type: 'POST',
+            data: body,
+            cache: false,
+            processData: false,
+            contentType: 'application/json',
+            success: function (r) {
+                console.log(r);
+                alert("Group Selected!");
+            }
+        })
         // Jump to ready page
         // window.location.href = "ready.html";
     }
