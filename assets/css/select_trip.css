@@ -1,4 +1,4 @@
-#subtitle{
+/* #subtitle{
     margin:auto;
     margin-bottom:30px;
     border-radius: 10px;
@@ -16,15 +16,15 @@ h1{
   margin:auto;
   font-size: x-large;
   font-weight: bold;
-}
+} */
 
-#container{
+/* #container{
     margin: auto;
     border-radius: 25px;
     height: 200px;
     width: 20%;
     background-color: powderblue;
-}
+} */
 
 /* #select_button {
   appearance: button;

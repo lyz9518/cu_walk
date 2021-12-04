@@ -16,10 +16,11 @@ body{
 
 /* need to add mobil for container */
 #container{
+    padding: 20px;
     margin: auto;
-    border-radius: 25px;
-    height: 200px;
-    width: 20%;
+    border-radius: 8px;
+    height: 250px;
+    width: 400px;
     background-color: powderblue;
 }
 
@@ -32,14 +33,35 @@ body{
     color: rgba(19, 35, 96);
 }
 
+#subtitle{
+    margin:auto;
+    margin-bottom:30px;
+    border-radius: 10px;
+    height: 60px;
+    width: 400px;
+    background-color: powderblue;
+    box-shadow: 4px 4px;
+}
+
+h1{
+  color: rgb(23, 23, 216);
+  text-align: center;
+  line-height:51px;
+  vertical-align:middle;
+  margin:auto;
+  font-size: x-large;
+  font-weight: bold;
+}
 
 @media only screen and (max-width: 1024px) {
-    body {
-        margin-top: 400px;
+    html,body {
+        margin-top: 100px;
+        /* height: 100%; */
     }
 
     #logo {
-        width: 700px;
+        width:280px !important;
+        height:240px !important;
     }
 
     #query_string, #submit_button {
@@ -52,5 +74,36 @@ body{
         width: 350px;
         height:80px;
         font-size: 40px;
+    }
+
+    #container{
+        margin: auto;
+        border-radius: 8px;
+        min-height: 500px;
+        min-width: 70%;
+        background-color: powderblue;
+        font-size: 35px;
+        padding: 20px;
+        line-height: 40px;
+    }
+
+    #subtitle{
+        margin:auto;
+        margin-bottom:30px;
+        border-radius: 10px;
+        height: 60px;
+        width: 70%;
+        background-color: powderblue;
+        box-shadow: 4px 4px;
+    }
+    
+    h1{
+      color: rgb(23, 23, 216);
+      text-align: center;
+      line-height:51px;
+      vertical-align:middle;
+      margin:auto;
+      font-size: x-large;
+      font-weight: bold;
     }
 }
