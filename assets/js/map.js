@@ -61,7 +61,8 @@ var lng1;
 //     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
   
 var marker = new google.maps.Marker({
-    position: myLatLng, map, icon: image,//title: "Hello World!",
+    // position: myLatLng, map, icon: image
+    position: myLatLng, map
 });
 
 // function getLocation() {
