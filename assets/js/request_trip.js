@@ -32,26 +32,12 @@ function request_trip(){
                 console.log(time);
                 console.log(departure);
                 console.log(destination);
-
-
-                // window.location.href = "select_trip.html"
+                console.log("Google API finished");
             }
         });
     }
-}
 
 
-
-function edit_profile(){
-    // window.location.href = "profile.html";
-    window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
-}
-
-function submit_button(){
-    var idToken = localStorage.getItem("idToken");
-    var accessToken = localStorage.getItem("accessToken");
-    
-    
     // TODO: Add real data to body here
     var body = JSON.stringify({
         "time": "18:00",
@@ -77,4 +63,11 @@ function submit_button(){
 
     // TODO: uncomment the jump page code when others are ready 
     // window.location.assign("https://6998frontendtest.s3.amazonaws.com/select_trip.html");
+}
+
+
+
+function edit_profile(){
+    // window.location.href = "profile.html";
+    window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
 }
