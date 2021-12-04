@@ -1,15 +1,6 @@
-// function update_profile(){
-//     var nickname = document.getElementById(nickname).value;
-//     var gender = document.getElementById(gender).value;
-//     var phone_num = document.getElementById(phone_num).value;
-//     var emergency_contact = document.getElementById(emergency_contact).value;
-
-//     //TODO: API Here
-//     console.log(nickname);
-//     console.log(gender);
-//     console.log(phone_num);
-//     console.log(emergency_contact);
-// }
+//=========Tokens=========
+var idToken = localStorage.getItem("idToken");
+var accessToken = localStorage.getItem("accessToken");
 
 function load_existing_profile(){
     var existing_user = false;
@@ -66,23 +57,8 @@ function update_profile(){
         contentType: 'application/json',
         success: function (r) {
             console.log(r);
+            // alert("Personal profile has been recorded.");
         }
     })
-
-
-    // $.ajax({
-    //     // url: "https://szi6xpfx7g.execute-api.us-east-1.amazonaws.com/put_v2_test/upload?" +
-    //     //     "custom_label=" + custom_label + "&file_name=" + file_name + "&ContentEncoding=base64",
-    //     url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile?name=“ABC”&gender="abc"&phone="abc"&contact="abc",
-    //     type: 'POST',
-    //     headers: {'Content-Type': "application/json"},
-    //     // data: fileBody,
-    //     // cache: false,
-    //     // dataType: 'html',
-    //     // processData: false,
-    //     contentType: "application/json",
-    //     success: function (r) {
-    //         console.log(r)
-    //     }
-    // })
+    // window.location.href = "request_trip.html";
 }

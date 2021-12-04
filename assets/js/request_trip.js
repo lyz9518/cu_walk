@@ -1,3 +1,7 @@
+//=========Tokens=========
+var idToken = localStorage.getItem("idToken");
+var accessToken = localStorage.getItem("accessToken");
+
 // Glabal Var
 var time = null;
 var departure = null;
@@ -21,7 +25,7 @@ function request_trip(){
         console.log(destination);
         
         // Jump to ready page
-        window.location.href = "select_trip.html";
+        // window.location.href = "select_trip.html";
     }
 }
 

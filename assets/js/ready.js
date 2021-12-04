@@ -1,3 +1,7 @@
+//=========Tokens=========
+var idToken = localStorage.getItem("idToken");
+var accessToken = localStorage.getItem("accessToken");
+
 
 // ======================Count Down Timer============================
 // Set the date we're counting down to
