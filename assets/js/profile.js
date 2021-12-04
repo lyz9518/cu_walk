@@ -18,22 +18,27 @@ function load_existed_profile(){
         contentType: 'application/json',
         success: function (r) {
             console.log(r);
-            console.log("Finally Get API is working");
+            var res = JSON.parse(r);
+            
+            // TODO: check the flag condition
+            // check if existing user and update inner value
+            if (res.isOldUser == true){
+                var nickname = res.name;
+                var gender = res.gender;
+                var phone_num = res.cellphone;
+                var emergency_contact = res.emergency_contact;
+            } else {
+                var nickname = "Lion";
+                var gender = "e.g Male";
+                var phone_num = "e.g 0103334567";
+                var emergency_contact = "e.g 9493334567";
+            }
+            document.getElementById("nickname").placeholder = nickname;
+            document.getElementById("gender").placeholder = gender;
+            document.getElementById("phone_num").placeholder = phone_num;
+            document.getElementById("emergency_contact").placeholder = emergency_contact;
         }
     })
-
-    alert("onload test");
-    if (existing_user == false){
-        document.getElementById("nickname").placeholder = "";
-        document.getElementById("gender").placeholder = "";
-        document.getElementById("phone_num").placeholder = "";
-        document.getElementById("emergency_contact").placeholder = "";
-    } else {
-        document.getElementById("nickname").placeholder = nickname;
-        document.getElementById("gender").placeholder = gender;
-        document.getElementById("phone_num").placeholder = phone_num;
-        document.getElementById("emergency_contact").placeholder = emergency_contact;
-    }
 }
 
 function update_profile(){
@@ -48,7 +53,7 @@ function update_profile(){
 
     var idToken = localStorage.getItem("idToken");
     var accessToken = localStorage.getItem("accessToken");
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
+    
     
     var body = JSON.stringify({
         "name": nickname,
@@ -57,26 +62,10 @@ function update_profile(){
         "emergency_contact": emergency_contact
        })
 
-    // $.ajax({
-    //     url: API_addr + "?accessToken=" + accessToken,
-    //     // url: API_addr,
-    //     headers: {"Token": idToken},
-    //     type: 'POST',
-    //     data: body,
-    //     // cache: false,
-    //     // processData: false,
-    //     contentType: 'application/json',
-    //     success: function (r) {
-    //         console.log(r);
-    //         console.log("YESSS");
-    //         // alert("Personal profile has been recorded.");
-    //     }
-    // })
-
-
+    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
 
     $.ajax({
-        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
+        url: API_addr + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
         type: 'POST',
         cache: false,
@@ -84,44 +73,9 @@ function update_profile(){
         contentType: 'application/json',
         success: function (r) {
             console.log(r);
-            console.log("Finally Get API is working");
+            alert("User profile saved");
         }
     })
-
-
-
-
 
     // window.location.href = "request_trip.html";
-}
-
-
-function login_get_test(){
-    $.ajax({
-        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/login" + "?accessToken=" + accessToken,
-        headers: {"Token": idToken},
-        type: 'GET',
-        cache: false,
-        processData: false,
-        contentType: 'application/json',
-        success: function (r) {
-            console.log(r);
-            console.log("Login Get test");
-        }
-    })
-}
-
-function profile_get_test(){
-    $.ajax({
-        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile" + "?accessToken=" + accessToken,
-        headers: {"Token": idToken},
-        type: 'GET',
-        cache: false,
-        processData: false,
-        contentType: 'application/json',
-        success: function (r) {
-            console.log(r);
-            console.log("Profile get test");
-        }
-    })
 }
