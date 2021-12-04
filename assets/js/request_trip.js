@@ -43,5 +43,6 @@ function request_trip(){
 
 
 function edit_profile(){
-    window.location.href = "profile.html";
+    // window.location.href = "profile.html";
+    window.location.assign("https://6998frontendtest.s3.amazonaws.com/profile.html");
 }
