@@ -14,6 +14,7 @@ $.ajax({
         //TODO: debug the logic here and need to optimze the structure here.
         alert("Starting Trip!");
         let res = JSON.parse(JSON.stringify(r));
+        console.log(res)
         // from_location_str is the location name of departure.
         let from_location_str = res[0]['departure'];
         // to_location_str is a dict
