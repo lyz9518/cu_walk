@@ -14,9 +14,6 @@ var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 directionsDisplay.setMap(map);
 
-// function calcRoute() {
-// create request
-
 var request = {
     origin: from_location, destination: to_location, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
     unitSystem: google.maps.UnitSystem.IMPERIAL
