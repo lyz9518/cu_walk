@@ -54,14 +54,14 @@ function update_profile(){
     var emergency_contact = document.getElementById("emergency_contact").value;
 
     console.log("HELLO??????");
-    console.log(nickname);
+    console.log(nickname==null);
     console.log(gender);
     console.log(phone_num);
     console.log(emergency_contact);
     
     // if (nickname == null){
     //     alert("Please enter your nickname");
-    // } else if (gender == null) {
+    // } else if (gender == "Select Order") {
     //     alert("Please select your gender");
     // } else if (phone_num == null) {
     //     alert("Please enter your cellphone number");
