@@ -54,7 +54,8 @@ function update_profile(){
     var emergency_contact = document.getElementById("emergency_contact").value;
 
     console.log("HELLO??????");
-    console.log(nickname==null);
+    console.log(typeof nickname);
+    console.log(nickname.length);
     console.log(gender);
     console.log(phone_num);
     console.log(emergency_contact);
