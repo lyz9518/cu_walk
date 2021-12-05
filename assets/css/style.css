@@ -53,10 +53,34 @@ h1{
   font-weight: bold;
 }
 
+#welcome{
+    color: white;
+    font-size: 50px;
+    font-family: Arial;
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+}
+
+#description{
+    padding-left: 20%;
+    padding-right: 20%;
+    color: rgb(184, 181, 181);
+    font-size: 20px;
+    font-family: Arial;
+    /* font-weight: bold; */
+
+}
+
 @media only screen and (max-width: 1024px) {
     html,body {
         margin-top: 100px;
         /* height: 100%; */
+    }
+
+
+    #lion {
+        width:450px;
+        height:650px;
     }
 
     #logo {
@@ -105,5 +129,23 @@ h1{
       margin:auto;
       font-size: x-large;
       font-weight: bold;
+    }
+
+    #welcome{
+        color: white;
+        font-size: 60px;
+        font-family: Arial;
+        font-weight: bold;
+        text-shadow: 2px 2px black;
+    }
+
+    #description{
+        padding-left: 20%;
+        padding-right: 20%;
+        color: rgb(184, 181, 181);
+        font-size: 30px;
+        font-family: Arial;
+        /* font-weight: bold; */
+    
     }
 }
