@@ -55,18 +55,18 @@ function update_profile(){
 
     console.log("HELLO??????");
     console.log(typeof nickname);
-    console.log(nickname.length);
+    console.log(nickname == "");
     console.log(gender);
     console.log(phone_num);
     console.log(emergency_contact);
     
-    // if (nickname == null){
+    // if (nickname == ""){
     //     alert("Please enter your nickname");
     // } else if (gender == "Select Order") {
     //     alert("Please select your gender");
-    // } else if (phone_num == null) {
+    // } else if (phone_num == "") {
     //     alert("Please enter your cellphone number");
-    // } else if (emergency_contact == null) {
+    // } else if (emergency_contact == "") {
     //     alert("Please enter your emergency_contact");
     // } else {
     //     console.log("Profile API is working");
