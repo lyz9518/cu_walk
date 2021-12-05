@@ -75,8 +75,6 @@ function update_profile(){
             "emergency_contact": emergency_contact
         });
 
-        alert(JSON.stringify(body));
-
         var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
 
         $.ajax({

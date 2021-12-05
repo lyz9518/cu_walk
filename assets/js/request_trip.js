@@ -50,7 +50,6 @@ function request_trip(){
                 "longitude": lng
             }
         })
-        alert(JSON.stringify(body));
 
         // TODO: Add real data to body here
         var body = JSON.stringify({
@@ -62,7 +61,6 @@ function request_trip(){
                 "longitude": lng
             }
         })
-        alert(JSON.stringify(body));
 
         var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
 
