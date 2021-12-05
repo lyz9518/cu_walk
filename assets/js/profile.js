@@ -53,7 +53,7 @@ function update_profile(){
     var phone_num = document.getElementById("phone_num").value;
     var emergency_contact = document.getElementById("emergency_contact").value;
 
-    console.loh("HELLO??????");
+    console.log("HELLO??????");
     console.log(nickname);
     console.log(gender);
     console.log(phone_num);
