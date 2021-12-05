@@ -30,6 +30,8 @@ $.ajax({
                 let result = data.results[0];
                 let latCord = result.geometry.location.lat;
                 let lngCord = result.geometry.location.lng;
+                console.log(latCord);
+                console.log(lngCord);
                 // in order to get marker, from_location is in coordicnate format.
                 let from_location = {"lat": latCord, "lng": lngCord};
                 // to_location should be in location name, not coordinate
