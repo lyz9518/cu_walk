@@ -41,7 +41,7 @@ function load_existed_profile(){
             document.getElementById("phone_num").placeholder = phone_num;
             document.getElementById("emergency_contact").placeholder = emergency_contact;
 
-            alert("Old user profile loaded");
+            alert("User profile loaded");
         }
     })
 }
