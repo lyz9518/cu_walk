@@ -40,38 +40,49 @@ function request_trip(){
         });
     }
 
-    setTimeout(3000);
+    setTimeout(function (){
+        var body = JSON.stringify({
+            "time": time,
+            "departure": departure,
+            "destination": {
+                "address": destination,
+                "latitude": lat, 
+                "longitude": lng
+            }
+        })
+        alert(JSON.stringify(body));
 
-    // TODO: Add real data to body here
-    var body = JSON.stringify({
-        "time": time,
-        "departure": departure,
-        "destination": {
-            "address": destination,
-            "latitude": lat, 
-            "longitude": lng
-        }
-    })
-    alert(JSON.stringify(body));
+        // TODO: Add real data to body here
+        var body = JSON.stringify({
+            "time": time,
+            "departure": departure,
+            "destination": {
+                "address": destination,
+                "latitude": lat, 
+                "longitude": lng
+            }
+        })
+        alert(JSON.stringify(body));
 
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
+        var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
 
-    $.ajax({
-        url: API_addr + "?accessToken=" + accessToken,
-        headers: {"Token": idToken},
-        type: 'POST',
-        data: body,
-        cache: false,
-        processData: false,
-        contentType: 'application/json',
-        success: function (r) {
-            console.log(r);
-            alert("Trip Requested!");
-        }
-    })
+        $.ajax({
+            url: API_addr + "?accessToken=" + accessToken,
+            headers: {"Token": idToken},
+            type: 'POST',
+            data: body,
+            cache: false,
+            processData: false,
+            contentType: 'application/json',
+            success: function (r) {
+                console.log(r);
+                alert("Trip Requested!");
+            }
+        })
 
-    // TODO: uncomment the jump page code when others are ready 
-    window.location.assign("https://6998frontendtest.s3.amazonaws.com/select_trip.html");
+        // TODO: uncomment the jump page code when others are ready 
+        window.location.assign("select_trip.html");
+    }, 3000);
 }
 
 
