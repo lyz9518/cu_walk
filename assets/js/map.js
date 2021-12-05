@@ -19,7 +19,7 @@ $.ajax({
         let from_location_str = res[0]['departure'];
         console.log(from_location_str)
         // to_location_str is a dict
-        let to_location_str = res[0]['first_user_coordinate'];
+        let to_location_str = JSON.parse(res[0]['first_user_coordinate']);
         console.log(to_location_str);
         let address = from_location_str.replaceAll(" ", "+");
         let url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + ",+New+York,+NY&key=AIzaSyAOhQqll5NI0TUOrYbbvQbF-TdU9qYWJHM";
