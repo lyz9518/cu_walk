@@ -113,8 +113,6 @@ $.ajax({
 
                 console.log(idToken);
                 console.log(accessToken);
-
-
             }
         });
     }
