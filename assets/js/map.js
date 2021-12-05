@@ -27,17 +27,14 @@ $.ajax({
                 let latCord = result.geometry.location.lat;
                 let lngCord = result.geometry.location.lng;
                 // in order to get marker, from_location is in coordicnate format.
-                var myLatLng = {"lat": latCord, "lng": lngCord};
-                let from_location = from_location_str;
+                let from_location = {"lat": latCord, "lng": lngCord};
                 // to_location should be in location name, not coordinate
-                let to_location = to_location_str["address"];
-                console.log("!!!!!!!!!!!!!!!!!")
+                let to_location = {"lat": to_location_str["latitude"], "lng": to_location_str["longitude"]};
+                var myLatLng = from_location;
                 console.log(to_location);
                 // test location
                 // var from_location = {lat: 40.8114424, lng: -73.9587781};
                 // var to_location = {lat: 40.8105964, lng: -73.95830099999999};
-
-
 
                 var mapOptions = {
                     // center: myLatLng,
