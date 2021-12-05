@@ -53,7 +53,14 @@ h1{
   font-weight: bold;
 }
 
+#lion {
+    margin: -40px;
+    width:300px;
+    height:450px;
+}
+
 #welcome{
+    margin-top: -10px;
     color: white;
     font-size: 50px;
     font-family: Arial;
@@ -62,6 +69,7 @@ h1{
 }
 
 #description{
+    margin-bottom: -40px;
     padding-left: 20%;
     padding-right: 20%;
     color: rgb(184, 181, 181);
