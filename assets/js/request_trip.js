@@ -40,6 +40,7 @@ function request_trip(){
         });
     }
 
+    setTimeout(3000);
 
     // TODO: Add real data to body here
     var body = JSON.stringify({
