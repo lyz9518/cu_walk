@@ -51,7 +51,7 @@ function request_trip(){
             "longitude": lng
         }
     })
-    alert(body);
+    alert(JSON.stringify(body));
 
     var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/trip";
 
