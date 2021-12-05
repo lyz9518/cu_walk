@@ -6,7 +6,7 @@ var accessToken = localStorage.getItem("accessToken");
 // ======================Count Down Timer============================
 // Set the date we're counting down to
 // TODO:API get time here
-var departure_time = "Dec 4, 2021 19:31:00"; 
+var departure_time = "Dec 4, 2021 23:00:00"; 
 var countDownDate = new Date(departure_time).getTime();
 
 // Update the count down every 1 second
