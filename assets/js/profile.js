@@ -73,7 +73,7 @@ function update_profile(){
             "gender": gender,
             "cellphone": phone_num,
             "emergency_contact": emergency_contact
-        })
+        });
 
         alert(JSON.stringify(body));
 
