@@ -92,7 +92,7 @@ function update_profile(){
             }
         })
 
-        // window.location.assign("request_trip.html");
+        window.location.assign("request_trip.html");
     }
 
     
