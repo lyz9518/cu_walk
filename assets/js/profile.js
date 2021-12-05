@@ -55,7 +55,7 @@ function update_profile(){
     
     if (nickname == ""){
         alert("Please enter your nickname");
-    } else if (gender == "Select Order") {
+    } else if (gender == "Select Gender") {
         alert("Please select your gender");
     } else if (phone_num == "") {
         alert("Please enter your cellphone number");
