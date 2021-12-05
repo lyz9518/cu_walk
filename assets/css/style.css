@@ -89,6 +89,7 @@ h1{
     #lion {
         width:450px;
         height:650px;
+        margin: 20px;
     }
 
     #logo {
@@ -150,8 +151,9 @@ h1{
     #description{
         padding-left: 20%;
         padding-right: 20%;
+        padding-bottom: 30px;
         color: rgb(184, 181, 181);
-        font-size: 30px;
+        font-size: 35px;
         font-family: Arial;
         /* font-weight: bold; */
     
