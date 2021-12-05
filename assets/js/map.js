@@ -31,7 +31,7 @@ $.ajax({
                 let from_location = from_location_str;
                 // to_location should be in location name, not coordinate
                 let to_location = to_location_str["address"];
-
+                console.log("!!!!!!!!!!!!!!!!!")
                 console.log(to_location);
                 // test location
                 // var from_location = {lat: 40.8114424, lng: -73.9587781};
