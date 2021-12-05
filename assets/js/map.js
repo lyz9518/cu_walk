@@ -26,6 +26,7 @@ $.ajax({
         $.ajax({
             url: url,
             success: function (data) {
+                console.log(data)
                 let result = data.results[0];
                 let latCord = result.geometry.location.lat;
                 let lngCord = result.geometry.location.lng;
