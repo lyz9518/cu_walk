@@ -1,7 +1,8 @@
 // https://stackoverflow.com/questions/5865089/simple-javascript-loop-that-repeats-each-second/28107143
 var idToken = localStorage.getItem("idToken");
 var accessToken = localStorage.getItem("accessToken");
-
+console.log(idToken);
+console.log(accessToken);
 $.ajax({
     url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/group" + "?accessToken=" + accessToken,
     headers: {"Token": idToken},
@@ -26,7 +27,8 @@ $.ajax({
                 let latCord = result.geometry.location.lat;
                 let lngCord = result.geometry.location.lng;
                 // in order to get marker, from_location is in coordicnate format.
-                let from_location = {"lat": latCord, "lng": lngCord};
+                var myLatLng = {"lat": latCord, "lng": lngCord};
+                let from_location = from_location_str;
                 // to_location should be in location name, not coordinate
                 let to_location = to_location_str["address"];
 
@@ -35,7 +37,7 @@ $.ajax({
                 // var from_location = {lat: 40.8114424, lng: -73.9587781};
                 // var to_location = {lat: 40.8105964, lng: -73.95830099999999};
 
-                var myLatLng = from_location;
+
 
                 var mapOptions = {
                     // center: myLatLng,
