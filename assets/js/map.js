@@ -17,6 +17,7 @@ $.ajax({
         console.log(res)
         // from_location_str is the location name of departure.
         let from_location_str = res[0]['departure'];
+        console.log(from_location_str)
         // to_location_str is a dict
         let to_location_str = res[0]['first_user_coordinate'];
         console.log(to_location_str);
