@@ -144,7 +144,7 @@ function arrived() {
         processData: false,
         contentType: 'application/json',
         success: function (r) {
-            alert("We have sent messages to your contact that you have arrive.")
+            alert("We have sent messages to your contact that you have arrived.")
             window.location.assign("request_trip.html")
         }
     })
