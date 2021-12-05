@@ -70,7 +70,7 @@ function request_trip(){
     })
 
     // TODO: uncomment the jump page code when others are ready 
-    // window.location.assign("https://6998frontendtest.s3.amazonaws.com/select_trip.html");
+    window.location.assign("https://6998frontendtest.s3.amazonaws.com/select_trip.html");
 }
 
 
