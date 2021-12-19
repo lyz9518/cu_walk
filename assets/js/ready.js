@@ -87,8 +87,8 @@ var idToken = localStorage.getItem("idToken");
             window.location.assign("map.html");
           }
         }, 1000);
-      //}
-    //})
+      }
+    })
 
 
 
