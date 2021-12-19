@@ -61,7 +61,10 @@ $.ajax({
                 //pass the request to the route method
                 directionsService.route(request, function (result, status) {
                     directionsDisplay.setDirections(result);
-                    console.log(result);
+                    var polyline = require('google-polyline');
+                    var points = polyline.decode(result.routes[0].overview_polyline);
+                    console.log(points);
+                    console.log(points.length);
                     // new google.maps.DirectionsRenderer({
                     //     map: map,
                     //     directions: response,
