@@ -114,7 +114,7 @@ $.ajax({
 
 function sendPointsArrayForRiskDetection(points_details) {
     $.ajax({
-        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/detect_rist_zone",
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/detect_risk_zone",
         headers: {"Token": idToken},
         type: 'POST',
         cache: false,
