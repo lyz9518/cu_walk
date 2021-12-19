@@ -63,11 +63,10 @@ $.ajax({
                     directionsDisplay.setDirections(result);
                     console.log(result);
                     // console.log(result.routes[0].overview_polyline);
-                    var points = result.routes[0].overview_path;
-                    var points_details;
-                    let latlng = points[0].lat.Scopes;
-                    console.log(latlng);
-                    console.log(points_details);
+                    // var path = result.routes[0].overview_path;
+                    var polyline = require('google-polyline');
+                    var points = polyline.decode(result.routes[0].overview_polyline);
+                    console.log(points);
 
                     // for (let i = 0; i<points.length; i++){
                     //     let latlng = points[i].lat.Scopes[0];
