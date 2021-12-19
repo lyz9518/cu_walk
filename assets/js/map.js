@@ -65,23 +65,12 @@ $.ajax({
 
                     var points_details = [];
                     var points = result.routes[0].overview_path;
-                    for (let i = 0; i<points.length; i++){
+                    for (let i = 0; i<points.length; i+=5){
                         points_details.push([points[i].lat(), points[i].lng()]);
                     }
-                    console.log(points_details)
+                    console.log(points_details);
 
-                    // var polyline = require('google-polyline');
                     
-                    // console.log(points);
-                    // console.log(points.length);
-                    // new google.maps.DirectionsRenderer({
-                    //     map: map,
-                    //     directions: response,
-                    //     suppressMarkers: true
-                    // });
-                    // var leg = response.routes[0].legs[0];
-                    // new google.maps.Marker({position: leg.start_location, icon: icons.start, title: "title", map: map})
-                    // new google.maps.Marker({position: leg.end_location, icon: icons.end, title: "title", map: map})
                 });
 
                 // var icons = {
