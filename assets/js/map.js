@@ -123,6 +123,14 @@ function sendPointsArrayForRiskDetection(points_details) {
         contentType: 'application/json',
         success: function (r) {
             let response = JSON.parse(r);
+            let pc = "";
+            let crimeRatio = "";
+            for (let i = 0; i < response.length; i++) {
+                pc += "Precinct" + response[i]["pc_id"] + " ";
+                crimeRatio += response[i]["crime_ratio"] + " ";
+            }
+            let alertString = "You are about to enter following areas: " + pc + ", with crime ratio of " + crimeRatio
+            alert(alertString);
         }
     })
 }
