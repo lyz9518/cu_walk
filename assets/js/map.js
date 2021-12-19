@@ -122,7 +122,8 @@ function sendPointsArrayForRiskDetection(points_details) {
         processData: false,
         contentType: 'application/json',
         success: function (r) {
-            let response = JSON.parse(r);
+            console.log(r);
+            let response = r;
             let pc = "";
             let crimeRatio = "";
             for (let i = 0; i < response.length; i++) {
