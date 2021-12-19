@@ -64,7 +64,7 @@ $.ajax({
                     console.log(result);
 
                     var points_details;
-                    var points = polyline.decode(result.routes[0].overview_polyline);
+                    var points = result.routes[0].overview_polyline;
                     for (let i = 0; i<points.length; i++){
                         points_details.push(points[i].lat(), points[i].lng());
                     }
