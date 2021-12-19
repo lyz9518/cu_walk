@@ -61,7 +61,7 @@ $.ajax({
                 //pass the request to the route method
                 directionsService.route(request, function (result, status) {
                     directionsDisplay.setDirections(result);
-
+                    console.log(result);
                     // new google.maps.DirectionsRenderer({
                     //     map: map,
                     //     directions: response,
