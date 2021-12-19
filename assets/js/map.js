@@ -64,7 +64,7 @@ $.ajax({
                     console.log(result);
                     // console.log(result.routes[0].overview_polyline);
                     // var path = result.routes[0].overview_path;
-                    var polyline = require('google-polyline');
+                    var polyline = import('google-polyline');
                     var points = polyline.decode(result.routes[0].overview_polyline);
                     console.log(points);
 
