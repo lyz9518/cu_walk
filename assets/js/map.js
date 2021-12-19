@@ -63,10 +63,10 @@ $.ajax({
                     directionsDisplay.setDirections(result);
                     console.log(result);
 
-                    var points_details;
+                    var points_details = [];
                     var points = result.routes[0].overview_polyline;
                     for (let i = 0; i<points.length; i++){
-                        points_details.push(points[i].lat(), points[i].lng());
+                        points_details.push([points[i].lat(), points[i].lng()]);
                     }
                     console.log(points_details)
 
