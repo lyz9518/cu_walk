@@ -59,38 +59,26 @@ $.ajax({
                 }
 
                 //pass the request to the route method
+                let intensePointsArray = [];
                 directionsService.route(request, function (result, status) {
                     directionsDisplay.setDirections(result);
                     console.log(result);
 
                     var points_details = [];
                     var points = result.routes[0].overview_path;
-                    for (let i = 0; i<points.length; i+=5){
+                    for (let i = 0; i < points.length; i += 5) {
                         points_details.push([points[i].lat(), points[i].lng()]);
+                    }
+                    for (let i = 0; i < points.length; i++) {
+                        intensePointsArray.push([points[i].lat(), points[i].lng()]);
                     }
                     console.log(points_details);
                     sendPointsArrayForRiskDetection(points_details);
-                    
-                });
 
-                // var icons = {
-                //     start: new google.maps.MarkerImage(
-                //         'http://maps.google.com/mapfiles/ms/micons/blue.png',
-                //         new google.maps.Size(44, 32),
-                //         new google.maps.Point(0, 0),
-                //         new google.maps.Point(22, 32)),
-                //     end: new google.maps.MarkerImage(
-                //         'http://maps.google.com/mapfiles/ms/micons/red.png',
-                //         new google.maps.Size(44, 32),
-                //         new google.maps.Point(0, 0),
-                //         new google.maps.Point(22, 32))
-                // };
+                });
 
                 var lat1;
                 var lng1;
-
-                // const image =
-                //     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
                 var marker = new google.maps.Marker({
                     // position: myLatLng, map, icon: image
@@ -112,6 +100,10 @@ $.ajax({
                     marker.setPosition(myLatLng);
                 }
 
+                setInterval(function () {
+                    sendPointsForHazardDetection(myLatLng, intensePointsArray);
+                }, 10000)
+
                 console.log(idToken);
                 console.log(accessToken);
             }
@@ -131,7 +123,33 @@ function sendPointsArrayForRiskDetection(points_details) {
         contentType: 'application/json',
         success: function (r) {
             let response = JSON.parse(r);
-            alert("We have sent messages to your contact! Stay safe!")
+        }
+    })
+}
+
+function sendPointsForHazardDetection(myLatLng, intensePointsArray) {
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/hazard_detection",
+        headers: {"Token": idToken},
+        type: 'POST',
+        cache: false,
+        data: JSON.stringify(
+            {
+                "pointsArray": intensePointsArray,
+                "curLocation": myLatLng
+            }
+        ),
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            let response = JSON.parse(r);
+            console.log(response["condition"]);
+            if (response["condition"] == "safe") {
+                alert("current situation safe");
+            } else {
+                alert("Hazard detected, message sent to your emergency contact!");
+                emergency();
+            }
         }
     })
 }
