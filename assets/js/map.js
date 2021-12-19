@@ -131,7 +131,6 @@ function sendPointsArrayForRiskDetection(points_details) {
         contentType: 'application/json',
         success: function (r) {
             let response = JSON.parse(r);
-            response
             alert("We have sent messages to your contact! Stay safe!")
         }
     })
