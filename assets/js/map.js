@@ -62,20 +62,16 @@ $.ajax({
                 directionsService.route(request, function (result, status) {
                     directionsDisplay.setDirections(result);
                     console.log(result);
-                    // console.log(result.routes[0].overview_polyline);
-                    // var path = result.routes[0].overview_path;
-                    var polyline = import('google-polyline');
+
+                    var points_details;
                     var points = polyline.decode(result.routes[0].overview_polyline);
-                    console.log(points);
-
-                    // for (let i = 0; i<points.length; i++){
-                    //     let latlng = points[i].lat.Scopes[0];
-                    //     points_details.push(latlng.e, latlng.f);
-                    // }
-
+                    for (let i = 0; i<points.length; i++){
+                        points_details.push(points[i].lat(), points[i].lng());
+                    }
+                    console.log(points_details)
 
                     // var polyline = require('google-polyline');
-                    // var points = polyline.decode(result.routes[0].overview_polyline);
+                    
                     // console.log(points);
                     // console.log(points.length);
                     // new google.maps.DirectionsRenderer({
