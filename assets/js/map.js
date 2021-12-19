@@ -61,7 +61,17 @@ $.ajax({
                 //pass the request to the route method
                 directionsService.route(request, function (result, status) {
                     directionsDisplay.setDirections(result);
+                    console.log(result);
                     console.log(result.routes[0].overview_polyline);
+
+                    // var polyline = require('./decode');
+                    // console.log(polyline);
+                    // polyline.decode( result.routes[0].overview_polyline );
+                    var polyline = require('google-polyline');
+                    console.log(polyline);
+                    var points = polyline.decode(result.routes[0].overview_polyline);
+                    console.log(points);
+
                     // var polyline = require('google-polyline');
                     // var points = polyline.decode(result.routes[0].overview_polyline);
                     // console.log(points);
