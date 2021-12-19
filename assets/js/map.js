@@ -69,7 +69,7 @@ $.ajax({
                         points_details.push([points[i].lat(), points[i].lng()]);
                     }
                     console.log(points_details);
-
+                    sendPointsArrayForRiskDetection(points_details);
                     
                 });
 
@@ -118,6 +118,24 @@ $.ajax({
         });
     }
 })
+
+
+function sendPointsArrayForRiskDetection(points_details) {
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/detect_rist_zone",
+        headers: {"Token": idToken},
+        type: 'POST',
+        cache: false,
+        data: JSON.stringify(points_details),
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            let response = JSON.parse(r);
+            response
+            alert("We have sent messages to your contact! Stay safe!")
+        }
+    })
+}
 
 
 function emergency() {
