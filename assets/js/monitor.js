@@ -17,33 +17,40 @@ let mapOptions = {
 };
 
 let map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+
+
 let directionsService = new google.maps.DirectionsService();
 let directionsDisplay = new google.maps.DirectionsRenderer();
 directionsDisplay.setMap(map);
-let directionsService1 = new google.maps.DirectionsService();
-let directionsDisplay1 = new google.maps.DirectionsRenderer();
-directionsDisplay1.setMap(map);
-
 let request = {
     origin: from_location, destination: to_location, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
     unitSystem: google.maps.UnitSystem.IMPERIAL
 }
-let request1 = {
-    origin: from_location1, destination: to_location1, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
-    unitSystem: google.maps.UnitSystem.IMPERIAL
-}
-//pass the request to the route method
-let intensePointsArray = [];
 directionsService.route(request, function (result, status) {
     directionsDisplay.setDirections(result);
     console.log(result);
 
 });
 
+
+let directionsService1 = new google.maps.DirectionsService();
+let directionsDisplay1 = new google.maps.DirectionsRenderer();
+directionsDisplay1.setMap(map);
+let request1 = {
+    origin: from_location1, destination: to_location1, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
+    unitSystem: google.maps.UnitSystem.IMPERIAL
+}
 directionsService1.route(request1, function (result, status) {
     directionsDisplay1.setDirections(result);
     console.log(result);
 });
+
+
+//pass the request to the route method
+let intensePointsArray = [];
+
+
+
 
 let image_me = "./assets/picture/marker_me.png";
 let markerList;
