@@ -121,7 +121,7 @@ function create_group(){
     //     alert("Please select a group to continues")
     // } else {
         var body = JSON.stringify({
-            "first_user_coordinate": selected_group_name,
+            "first_user_coordinate": "CREATE",
             "create_new_group": "CREATE"
         })
 
