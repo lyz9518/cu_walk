@@ -36,12 +36,12 @@ function load_existed_profile(){
             var gender = res['gender']['S'];
             var phone_num = res['cellphone']['N'];
             var emergency_contact = res['emergency_contact']['N'];
-            var emergency_contact_email = res['emergency_contact_email']['N'];
+            var emergency_contact_email = res['emergency_email']['N'];
             document.getElementById("nickname").placeholder = nickname;
             document.getElementById("gender").placeholder = gender;
             document.getElementById("phone_num").placeholder = phone_num;
             document.getElementById("emergency_contact").placeholder = emergency_contact;
-            document.getElementById("emergency_contact_email").placeholder = emergency_contact_email;
+            document.getElementById("emergency_email").placeholder = emergency_contact_email;
 
             alert("User profile loaded");
         }
