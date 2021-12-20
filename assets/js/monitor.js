@@ -21,8 +21,8 @@ $.ajax({
         var routes = r.routes;
         
         for (let i = 0; i<routes.length; i++){
-            let from_location = routes[i][1];
-            let to_location = routes[i][2];
+            let from_location = routes[i][1]+"New York, NY";
+            let to_location = routes[i][2]+"New York, NY";
             let directionsService = new google.maps.DirectionsService();
             let directionsDisplay = new google.maps.DirectionsRenderer();
             directionsDisplay.setMap(map);
