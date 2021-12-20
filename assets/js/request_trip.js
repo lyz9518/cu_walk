@@ -85,3 +85,8 @@ function edit_profile() {
     // window.location.href = "profile.html";
     window.location.assign("profile.html");
 }
+
+function monitor() {
+    // window.location.href = "profile.html";
+    window.location.assign("select_monitor.html");
+}
