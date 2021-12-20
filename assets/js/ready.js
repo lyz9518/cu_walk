@@ -45,8 +45,8 @@ $.ajax({
       return `${hours}:${minutes}:00`;
     }
 
-    var departure_time = "11:00 AM"//r.time; //"Dec 4, 2021 23:00:00";  11:00 PM
-    var signal="1234"; //= r.code;
+    var departure_time = r.time; //"Dec 4, 2021 23:00:00";  11:00 PM
+    var signal= r.code;
     document.getElementById("signal").innerHTML = "Security Code: "+signal; 
     departure_time = convertTime12to24(departure_time);
     var departure_today = today + " " + departure_time;
