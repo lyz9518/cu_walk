@@ -166,6 +166,24 @@ h1{
         background-color: powderblue;
         box-shadow: 4px 4px;
     }
+    #subtitle1{
+        margin:auto;
+        margin-bottom:30px;
+        border-radius: 10px;
+        height: 120px;
+        width: 70%;
+        background-color: powderblue;
+        box-shadow: 4px 4px;
+    }
+    #subtitle2{
+        margin:auto;
+        margin-bottom:30px;
+        border-radius: 10px;
+        height: 120px;
+        width: 70%;
+        background-color: powderblue;
+        box-shadow: 4px 4px;
+    }
     
     h1{
       color: rgb(23, 23, 216);
