@@ -7,6 +7,12 @@ body{
 
 input{
     background-color: powderblue;
+    border-color: powderblue;
+}
+
+input{
+    background-color: powderblue;
+    border-color: powderblue;
 }
 
 #query_string{
