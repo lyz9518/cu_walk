@@ -19,7 +19,7 @@ $.ajax({
     contentType: 'application/json',
     success: function (r) {
         var routes = r.routes;
-        
+        console.log(routes)
         for (let i = 0; i<routes.length; i++){
             let from_location = routes[i][1]+"New York, NY";
             let to_location = routes[i][2]+"New York, NY";
