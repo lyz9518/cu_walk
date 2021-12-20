@@ -60,6 +60,7 @@ function createNewMarker(LatLng, name) {
         // position: myLatLng, map, icon: image
         position: LatLng, map, icon: image_me,
     });
+    // check if there is problem of event listener
     marker.addEventListener("click", function(){
         infoWindow.open({
             anchor: marker,
