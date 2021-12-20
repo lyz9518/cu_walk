@@ -84,7 +84,8 @@ function select_group(){
         alert("Please select a group to continues")
     } else {
         var body = JSON.stringify({
-            "first_user_coordinate": selected_group_name
+            "first_user_coordinate": selected_group_name,
+            "create_new_group": "JOIN"
         })
 
         var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/group";
@@ -109,6 +110,31 @@ function select_group(){
 
 
 function create_group(){
-    
+    if (selected_group_name == null){
+        alert("Please select a group to continues")
+    } else {
+        var body = JSON.stringify({
+            "first_user_coordinate": selected_group_name,
+            "create_new_group": "CREATE"
+        })
+
+        var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/group";
+
+        $.ajax({
+            url: API_addr + "?accessToken=" + accessToken,
+            headers: {"Token": idToken},
+            type: 'POST',
+            data: body,
+            cache: false,
+            processData: false,
+            contentType: 'application/json',
+            success: function (r) {
+                console.log(r);
+                alert("Group Selected!");
+            }
+        })
+        // Jump to ready page
+        window.location.assign("ready.html");
+    }
 
 }
