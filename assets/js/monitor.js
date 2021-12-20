@@ -52,19 +52,20 @@ setInterval(function () {
 }, 5000)
 
 function createNewMarker(LatLng, name) {
-    var contentString ="<div>" + name +"</div>";
-    var infowindow = new google.maps.InfoWindow({
+    let contentString ="<div>" + name +"</div>";
+    let infoWindow = new google.maps.InfoWindow({
         content: contentString,
     });
-    var marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
         // position: myLatLng, map, icon: image
         position: LatLng, map, icon: image_me,
     });
-    marker.addListener("click", () => {
-        infowindow.open({
-          anchor: marker,
-          map,
-          shouldFocus: false,
+
+    marker.addEventListener("click", function(){
+        infoWindow.open({
+            anchor: marker,
+            map,
+            shouldFocus: false,
         });
     });
     return marker;
