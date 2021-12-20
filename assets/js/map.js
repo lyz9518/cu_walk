@@ -211,7 +211,17 @@ function arrived() {
         contentType: 'application/json',
         success: function (r) {
             alert("We have sent messages to your contact that you have arrived.")
-            window.location.assign("request_trip.html")
+            $.ajax({
+                url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/cancel" + "?accessToken=" + accessToken,
+                headers: {"Token": idToken},
+                type: 'PUT',
+                cache: false,
+                processData: false,
+                contentType: 'application/json',
+                success: function (r) {
+                    window.location.assign("select.html");
+                }
+            })
         }
     })
 }
