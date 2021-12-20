@@ -36,12 +36,12 @@ function load_existed_profile(){
             var gender = res['gender']['S'];
             var phone_num = res['cellphone']['N'];
             var emergency_contact = res['emergency_contact']['N'];
-            var emergency_contact_email = res['emergency_email']['N'];
+            var emergency_email = res['emergency_email']['N'];
             document.getElementById("nickname").placeholder = nickname;
             document.getElementById("gender").placeholder = gender;
             document.getElementById("phone_num").placeholder = phone_num;
             document.getElementById("emergency_contact").placeholder = emergency_contact;
-            document.getElementById("emergency_email").placeholder = emergency_contact_email;
+            document.getElementById("emergency_email").placeholder = emergency_email;
 
             alert("User profile loaded");
         }
@@ -54,7 +54,7 @@ function update_profile(){
     var gender = document.getElementById("gender").value;
     var phone_num = document.getElementById("phone_num").value;
     var emergency_contact = document.getElementById("emergency_contact").value;
-    var emergency_contact_email = document.getElementById("emergency_email").value;
+    var emergency_email = document.getElementById("emergency_email").value;
     
     if (nickname == ""){
         alert("Please enter your nickname");
@@ -64,7 +64,7 @@ function update_profile(){
         alert("Please enter your cellphone number");
     } else if (emergency_contact == "") {
         alert("Please enter your emergency contact's phone number");
-    } else if (emergency_contact_email == ""){
+    } else if (emergency_email == ""){
         alert("Please enter your emergency contact's email address");
     } else {
         console.log("Profile API is working");
@@ -78,7 +78,7 @@ function update_profile(){
             "gender": gender,
             "cellphone": phone_num,
             "emergency_contact": emergency_contact,
-            "emergency_contact_email": emergency_contact_email
+            "emergency_email": emergency_email
         });
 
         var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/profile";
