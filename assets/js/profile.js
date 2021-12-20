@@ -94,10 +94,11 @@ function update_profile(){
             success: function (r) {
                 console.log(r);
                 alert("User profile saved");
+                window.location.assign("select.html");
             }
         })
 
-        window.location.assign("select.html");
+
     }
 
     
