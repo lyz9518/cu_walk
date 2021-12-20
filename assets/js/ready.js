@@ -8,88 +8,88 @@ var accessToken = localStorage.getItem("accessToken");
 // TODO:API get time here
 
 var idToken = localStorage.getItem("idToken");
-    var accessToken = localStorage.getItem("accessToken");
+var accessToken = localStorage.getItem("accessToken");
 
-    var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/getdeparturetime";
+var API_addr = "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/getdeparturetime";
 
-    $.ajax({
-      url: API_addr + "?accessToken=" + accessToken,
-      headers: {"Token": idToken},
-      type: "GET",
-      cache: false,
-      processData: false,
-      contentType: 'application/json',
-      success: function (r) {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        if(mm=="01"){mm="Jan"}else if(mm=="02"){mm="Feb"}else if(mm=="03"){mm="Mar"}else if(mm=="04"){mm="Apr"}else if(mm=="05"){mm="May"}else if(mm=="06"){mm="Jun"}
-        else if(mm=="07"){mm="Jul"}else if(mm=="08"){mm="Aug"}else if(mm=="09"){mm="Sep"}else if(mm=="10"){mm="Oct"}else if(mm=="11"){mm="Nov"}else if(mm=="12"){mm="Dec"}
-        var yyyy = today.getFullYear();
-        today = mm + ' ' + dd + ', ' + yyyy;
-        tomorrow = mm + ' ' + String(parseInt(dd)+1) + ', ' + yyyy;
+$.ajax({
+  url: API_addr + "?accessToken=" + accessToken,
+  headers: {"Token": idToken},
+  type: "GET",
+  cache: false,
+  processData: false,
+  contentType: 'application/json',
+  success: function (r) {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    if(mm=="01"){mm="Jan"}else if(mm=="02"){mm="Feb"}else if(mm=="03"){mm="Mar"}else if(mm=="04"){mm="Apr"}else if(mm=="05"){mm="May"}else if(mm=="06"){mm="Jun"}
+    else if(mm=="07"){mm="Jul"}else if(mm=="08"){mm="Aug"}else if(mm=="09"){mm="Sep"}else if(mm=="10"){mm="Oct"}else if(mm=="11"){mm="Nov"}else if(mm=="12"){mm="Dec"}
+    var yyyy = today.getFullYear();
+    today = mm + ' ' + dd + ', ' + yyyy;
+    tomorrow = mm + ' ' + String(parseInt(dd)+1) + ', ' + yyyy;
 
-        const convertTime12to24 = (time12h) => {
-          const [time, modifier] = time12h.split(' ');
-        
-          let [hours, minutes] = time.split(':');
-        
-          if (hours === '12') {
-            hours = '00';
-          }
-        
-          if (modifier === 'PM') {
-            hours = parseInt(hours, 10) + 12;
-          }
-        
-          return `${hours}:${minutes}:00`;
-        }
-
-        var departure_time = r.time; //"Dec 4, 2021 23:00:00";  11:00 PM
-        var signal = r.code;
-        document.getElementById("signal").innerHTML = signal; 
-        departure_time = convertTime12to24(departure_time);
-        var departure_today = today + " "+departure_time;
-        var departure_tomorrow = tomorrow + " "+departure_time;
-        console.log(departure_today);
-        
-        var countDownDate = new Date(departure_today).getTime();
-        console.log(countDownDate);
-        var now = new Date().getTime();
-        if (countDownDate <now){
-          // countDownDate  = new Date().setDate(countDownDate +1);
-          countDownDate = new Date(departure_tomorrow).getTime();
-          console.log(departure_tomorrow);
-          console.log(countDownDate);
-        }
-        console.log(countDownDate );
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-        
-          // Get today's date and time
-          // Find the distance between now and the count down date
-          var distance = countDownDate - now;
-          
-          // Time calculations for days, hours, minutes and seconds
-          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-          // Output the result in an element with id="timer"
-          document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-          + minutes + "m " + seconds + "s ";
- 
-          // If the count down is over, write some text 
-
-          if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "Time to Go My Friend!";
-            window.location.assign("map.html");
-          }
-        }, 1000);
+    const convertTime12to24 = (time12h) => {
+      const [time, modifier] = time12h.split(' ');
+    
+      let [hours, minutes] = time.split(':');
+    
+      if (hours === '12') {
+        hours = '00';
       }
-    })
+    
+      if (modifier === 'PM') {
+        hours = parseInt(hours, 10) + 12;
+      }
+    
+      return `${hours}:${minutes}:00`;
+    }
+
+    var departure_time = "11:00 AM"//r.time; //"Dec 4, 2021 23:00:00";  11:00 PM
+    var signal="1234"; //= r.code;
+    document.getElementById("signal").innerHTML = "Security Code: "+signal; 
+    departure_time = convertTime12to24(departure_time);
+    var departure_today = today + " " + departure_time;
+    var departure_tomorrow = tomorrow + " " + departure_time;
+    console.log(departure_today);
+    
+    var countDownDate = new Date(departure_today).getTime();
+    console.log(countDownDate);
+    var now = new Date().getTime();
+    if (countDownDate <now){
+      // countDownDate  = new Date().setDate(countDownDate +1);
+      countDownDate = new Date(departure_tomorrow).getTime();
+      console.log(departure_tomorrow);
+      console.log(countDownDate);
+    }
+    console.log(countDownDate );
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+      now = new Date().getTime();
+      // Get today's date and time
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+      console.log(distance);
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      // Output the result in an element with id="timer"
+      document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the count down is over, write some text 
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "Time to Go My Friend!";
+        window.location.assign("map.html");
+      }
+    }, 1000);
+  }
+})
 
 
 
