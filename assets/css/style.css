@@ -5,6 +5,10 @@ body{
     background-image: linear-gradient(0deg, rgba(19, 35, 96),rgba(25, 99, 166));
 }
 
+input{
+    background-color: powderblue;
+}
+
 #query_string{
     border-radius: 8px;
     height: 40px;
