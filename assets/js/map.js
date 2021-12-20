@@ -156,9 +156,7 @@ function sendPointsForHazardDetection(myLatLng, intensePointsArray) {
             console.log(r);
             let response = r;
             console.log(response["condition"]);
-            if (response["condition"] == "safe") {
-                alert("current situation safe");
-            } else {
+            if (!(response["condition"] == "safe")) {
                 alert("Hazard detected, message sent to your emergency contact!");
                 emergency();
             }
