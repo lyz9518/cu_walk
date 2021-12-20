@@ -92,7 +92,7 @@ $.ajax({
             // Get today's date and time
             // Find the distance between now and the count down date
             var distance = countDownDate - now;
-            console.log(distance);
+            // console.log(distance);
             // Time calculations for days, hours, minutes and seconds
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -143,7 +143,7 @@ function user_ready() {
 
 function user_cancel() {
     // TODO: API Here
-    console.log("User cancelled the trip");
+    // console.log("User cancelled the trip");
     $.ajax({
         url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/cancel" + "?accessToken=" + accessToken,
         headers: {"Token": idToken},
