@@ -47,6 +47,7 @@ var idToken = localStorage.getItem("idToken");
 
         var departure_time = r.time; //"Dec 4, 2021 23:00:00";  11:00 PM
         var signal = r.code;
+        document.getElementById("signal").innerHTML = signal; 
         departure_time = convertTime12to24(departure_time);
         var departure_today = today + " "+departure_time;
         var departure_tomorrow = tomorrow + " "+departure_time;
@@ -78,7 +79,7 @@ var idToken = localStorage.getItem("idToken");
           // Output the result in an element with id="timer"
           document.getElementById("timer").innerHTML = days + "d " + hours + "h "
           + minutes + "m " + seconds + "s ";
-          document.getElementById("signal").innerHTML = signal;  
+ 
           // If the count down is over, write some text 
 
           if (distance < 0) {
