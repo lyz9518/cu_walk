@@ -30,7 +30,7 @@ $.ajax({
                 origin: from_location, destination: to_location, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
                 unitSystem: google.maps.UnitSystem.IMPERIAL
             }
-            directionsService.route(request, function (result, status) {
+            let route = directionsService.route(request, function (result, status) {
                 directionsDisplay.setDirections(result);
                 console.log(result);
             });
