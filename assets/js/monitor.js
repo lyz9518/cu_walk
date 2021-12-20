@@ -4,46 +4,56 @@ let accessToken = localStorage.getItem("accessToken");
 console.log(idToken);
 console.log(accessToken);
 
-let from_location = "Fu Foundation School of Engineering and Applied Science" + "New York, NY";
-let to_location = "520 West 123rd St" + "New York, NY";
-
-let from_location1 = "Fu Foundation School of Engineering and Applied Science" + "New York, NY";
-let to_location1 = "520 West 121rd St" + "New York, NY";
-
 myLatLng = {lat: 40.811547947831826, lng: -73.95883773895977};
 let mapOptions = {
-    // center: myLatLng,
     zoom: 18, mapTypeId: google.maps.MapTypeId.ROADMAP, center: myLatLng
 };
-
 let map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
 
+$.ajax({
+    url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/monitor" + "?accessToken=" + accessToken,
+    headers: {"Token": idToken},
+    type: 'GET',
+    cache: false,
+    processData: false,
+    contentType: 'application/json',
+    success: function (r) {
+        var routes = r.routes;
+        
+        for (let i = 0; i<routes.length; i++){
+            let from_location = routes[i][1];
+            let to_location = routes[i][2];
+            let directionsService = new google.maps.DirectionsService();
+            let directionsDisplay = new google.maps.DirectionsRenderer();
+            directionsDisplay.setMap(map);
+            let request = {
+                origin: from_location, destination: to_location, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
+                unitSystem: google.maps.UnitSystem.IMPERIAL
+            }
+            directionsService.route(request, function (result, status) {
+                directionsDisplay.setDirections(result);
+                console.log(result);
+            });
+        }
+    }
+})
 
-let directionsService = new google.maps.DirectionsService();
-let directionsDisplay = new google.maps.DirectionsRenderer();
-directionsDisplay.setMap(map);
-let request = {
-    origin: from_location, destination: to_location, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
-    unitSystem: google.maps.UnitSystem.IMPERIAL
-}
-directionsService.route(request, function (result, status) {
-    directionsDisplay.setDirections(result);
-    console.log(result);
-
-});
 
 
-let directionsService1 = new google.maps.DirectionsService();
-let directionsDisplay1 = new google.maps.DirectionsRenderer();
-directionsDisplay1.setMap(map);
-let request1 = {
-    origin: from_location1, destination: to_location1, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
-    unitSystem: google.maps.UnitSystem.IMPERIAL
-}
-directionsService1.route(request1, function (result, status) {
-    directionsDisplay1.setDirections(result);
-    console.log(result);
-});
+
+// let from_location1 = "Fu Foundation School of Engineering and Applied Science" + "New York, NY";
+// let to_location1 = "520 West 121rd St" + "New York, NY";
+// let directionsService1 = new google.maps.DirectionsService();
+// let directionsDisplay1 = new google.maps.DirectionsRenderer();
+// directionsDisplay1.setMap(map);
+// let request1 = {
+//     origin: from_location1, destination: to_location1, travelMode: google.maps.TravelMode.WALKING, //WALKING, BYCYCLING, TRANSIT
+//     unitSystem: google.maps.UnitSystem.IMPERIAL
+// }
+// directionsService1.route(request1, function (result, status) {
+//     directionsDisplay1.setDirections(result);
+//     console.log(result);
+// });
 
 
 //pass the request to the route method
