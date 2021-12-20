@@ -41,6 +41,29 @@ body{
     width: 400px;
     background-color: powderblue;
     box-shadow: 4px 4px;
+    text-align: center;
+}
+#subtitle1{
+    margin:auto;
+    margin-bottom:30px;
+    border-radius: 10px;
+    height: 120px;
+    width: 400px;
+    background-color: powderblue;
+    box-shadow: 4px 4px;
+    text-align: center;
+    padding-top: 30px;
+}
+#subtitle2{
+    margin:auto;
+    margin-bottom:30px;
+    border-radius: 10px;
+    height: 120px;
+    width: 400px;
+    background-color: powderblue;
+    box-shadow: 4px 4px;
+    text-align: center;
+    padding-top: 30px;
 }
 
 h1{
@@ -51,6 +74,8 @@ h1{
   margin:auto;
   font-size: x-large;
   font-weight: bold;
+  /* text-align: center; */
+  /* margin-top: 20px; */
 }
 
 #lion {
