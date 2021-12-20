@@ -28,34 +28,41 @@ function load_groups(){
             
             // Hide the Loading text
             document.getElementById("loading_text").style.display = "none";
-
-            for (i=0; i<res.length; i++){
-                // Load Groups info from API response
-                var group_info = res[i];
-                //TODO: change double m teammates in the backend
-                var time = group_info["time"];
-                var departure = group_info["departure"];
-                var team_size = group_info["team_size"];
-                var first_user_coordinate = group_info["first_user_coordinate"];
-
-                var input = document.createElement("input");
+            if (res.length==0 || res==""){
                 var label = document.createElement("label");
-                
-                input.type = "checkbox";
-                input.id = first_user_coordinate
-                input.name = "groups";
-                $(input).click( function() { select_one(this) } );
-                label.innerHTML = "  " + time + "/ " + departure + "/ " + "Group Size: (" + team_size + ")"
-                label.htmlFor = first_user_coordinate;
-
+                label.innerHTML = "No group available. Please create a new group."
                 var form = document.getElementById("group_form");
-                console.log(form);
-                form.append(input);
                 form.append(label);
-                // Append a line break 
-                form.append(document.createElement("br"));
-                form.append(document.createElement("br"));
+            }else{
+                for (i=0; i<res.length; i++){
+                    // Load Groups info from API response
+                    var group_info = res[i];
+                    //TODO: change double m teammates in the backend
+                    var time = group_info["time"];
+                    var departure = group_info["departure"];
+                    var team_size = group_info["team_size"];
+                    var first_user_coordinate = group_info["first_user_coordinate"];
+    
+                    var input = document.createElement("input");
+                    var label = document.createElement("label");
+                    
+                    input.type = "checkbox";
+                    input.id = first_user_coordinate
+                    input.name = "groups";
+                    $(input).click( function() { select_one(this) } );
+                    label.innerHTML = "  " + time + "/ " + departure + "/ " + "Group Size: (" + team_size + ")"
+                    label.htmlFor = first_user_coordinate;
+    
+                    var form = document.getElementById("group_form");
+                    console.log(form);
+                    form.append(input);
+                    form.append(label);
+                    // Append a line break 
+                    form.append(document.createElement("br"));
+                    form.append(document.createElement("br"));
+                }
             }
+            
         }
     })
 
