@@ -112,10 +112,10 @@ function createNewMarker(LatLng, name) {
 
 function updateMarker(r) {
     if (r == null || r["users"] == null) {
-        alert("Response is null!");
+        // alert("Response is null!");
         return;
     } else if (r["users"].length === 0) {
-        alert("Response is empty!");
+        // alert("Response is empty!");
         return;
     }
 
