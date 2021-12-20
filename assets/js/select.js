@@ -10,7 +10,7 @@ function request_trip() {
 
 function select_monitor() {
     // window.location.href = "profile.html";
-    window.location.assign("select_monitor.html");
+    window.location.assign("monitor.html");
 }
 function edit_profile() {
     // window.location.href = "profile.html";
