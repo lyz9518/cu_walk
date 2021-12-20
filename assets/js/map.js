@@ -153,7 +153,8 @@ function sendPointsForHazardDetection(myLatLng, intensePointsArray) {
         processData: false,
         contentType: 'application/json',
         success: function (r) {
-            let response = JSON.parse(r);
+            console.log(r);
+            let response = r;
             console.log(response["condition"]);
             if (response["condition"] == "safe") {
                 alert("current situation safe");
