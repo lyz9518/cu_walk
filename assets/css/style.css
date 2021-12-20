@@ -24,7 +24,6 @@ body{
     background-color: powderblue;
 }
 
-
 #submit_button {
     border-radius: 8px;
     height: 40px; 
@@ -32,7 +31,13 @@ body{
     background-color: white; 
     color: rgba(19, 35, 96);
 }
-
+#create_button{
+    border-radius: 8px;
+    height: 40px; 
+    width: 400px;
+    background-color: white; 
+    color: rgba(19, 35, 96);
+}
 #subtitle{
     margin:auto;
     margin-bottom:30px;
@@ -126,6 +131,13 @@ h1{
         width: 700px;
         height: 80px;
         font-size: 40px;
+    }
+
+    #create_button{
+        width: 700px;
+        height: 80px;
+        font-size: 40px;
+        background-color: white;
     }
 
     #ready, #cancel{

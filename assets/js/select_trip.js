@@ -106,3 +106,9 @@ function select_group(){
         window.location.assign("ready.html");
     }
 }
+
+
+function create_group(){
+    
+
+}
