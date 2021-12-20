@@ -105,12 +105,31 @@ $.ajax({
                     sendPointsForHazardDetection(myLatLng, intensePointsArray);
                 }, 10000)
 
+                setInterval(function () {
+                    reportCurrentLocation([myLatLng.lat, myLatLng.lng]);
+                }, 5000)
+
                 console.log(idToken);
                 console.log(accessToken);
             }
         });
     }
 })
+
+function reportCurrentLocation(curLatLng) {
+    $.ajax({
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/monitor",
+        headers: {"Token": idToken},
+        type: 'POST',
+        cache: false,
+        data: JSON.stringify(curLatLng),
+        processData: false,
+        contentType: 'application/json',
+        success: function (r) {
+            console.log(r);
+        }
+    })
+}
 
 
 function sendPointsArrayForRiskDetection(points_details) {
