@@ -54,7 +54,7 @@ function update_profile(){
     var gender = document.getElementById("gender").value;
     var phone_num = document.getElementById("phone_num").value;
     var emergency_contact = document.getElementById("emergency_contact").value;
-    var emergency_contact_email = document.getElementById("emergency_contact_email").value;
+    var emergency_contact_email = document.getElementById("emergency_email").value;
     
     if (nickname == ""){
         alert("Please enter your nickname");
