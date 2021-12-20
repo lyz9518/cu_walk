@@ -33,10 +33,9 @@ directionsService.route(request, function (result, status) {
 });
 
 let image_me = "./assets/picture/marker_me.png";
-let marker;
 let markerList;
 // let response = {
-//     "users": [{"abc": [123,123]}, {"abc": [123,123]}, {"abc": [123,123]}, {"abc": [123,123]}]
+//     "users": [["abc", 123, 123], ["abc", 123, 123]]
 // }
 setInterval(function () {
     $.ajax({
@@ -52,27 +51,50 @@ setInterval(function () {
     })
 }, 5000)
 
+function createNewMarker(LatLng, name) {
+    return new google.maps.Marker({
+        // position: myLatLng, map, icon: image
+        position: LatLng, map, icon: image_me,
+    });
+}
+
 function updateMarker(r) {
     if (markerList == null) {
         markerList = [];
         for (let i = 0; i < r["users"].length; i++) {
-            let initialLatLng = {lat: r["users"][0], lng: r["users"][1]};
-            markerList.push(new google.maps.Marker({
-                // position: myLatLng, map, icon: image
-                position: initialLatLng, map, icon: image_me,
-            }));
+            let initialLatLng = {lat: r["users"][i][1], lng: r["users"][i][2]};
+            let name = r["users"][i][0];
+            markerList.push(createNewMarker(initialLatLng, name));
         }
     } else {
         // check whether new user join in the list
         if (r["users"].length > markerList.length) {
             for (let i = 0; i < r["users"].length; i++) {
+                let initialLatLng = {lat: r["users"][i][1], lng: r["users"][i][2]};
+                let name = r["users"][i][0];
                 if (i < markerList.length) {
-                    let curLatLng = {lat: r["users"][0], lng: lng1};
-                    markerList[i].setPosition()
+                    markerList[i].setMap(null);
+                    markerList[i] = createNewMarker(initialLatLng, name);
+                } else {
+                    markerList.push(createNewMarker(initialLatLng, name));
                 }
             }
         } else if (r["users"].length < markerList.length) {
-
+            let i;
+            for (i = 0; i < r["users"].length; i++) {
+                let initialLatLng = {lat: r["users"][i][1], lng: r["users"][i][2]};
+                let name = r["users"][i][0];
+                if (i < markerList.length) {
+                    markerList[i].setMap(null);
+                    markerList[i] = createNewMarker(initialLatLng, name);
+                } else {
+                    markerList.push(createNewMarker(initialLatLng, name));
+                }
+            }
+            for (; i < markerList.length; i++) {
+                markerList[i].setMap(null);
+                markerList.splice(i, 1);
+            }
         }
     }
 }
