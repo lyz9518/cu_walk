@@ -130,7 +130,8 @@ function sendPointsArrayForRiskDetection(points_details) {
                 pc += "Precinct" + response[i]["pc_id"] + " ";
                 crimeRatio += response[i]["crime_ratio"] + " ";
             }
-            let alertString = "You are about to enter following areas: " + pc + ", with crime ratio of " + crimeRatio
+            let alertString = "You are about to enter following areas: " + pc + ", with crime ratio of " + crimeRatio +
+                ". Please be careful."
             alert(alertString);
         }
     })
