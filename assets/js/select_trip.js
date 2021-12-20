@@ -110,9 +110,9 @@ function select_group(){
 
 
 function create_group(){
-    if (selected_group_name == null){
-        alert("Please select a group to continues")
-    } else {
+    // if (selected_group_name == null){
+    //     alert("Please select a group to continues")
+    // } else {
         var body = JSON.stringify({
             "first_user_coordinate": selected_group_name,
             "create_new_group": "CREATE"
@@ -130,11 +130,11 @@ function create_group(){
             contentType: 'application/json',
             success: function (r) {
                 console.log(r);
-                alert("Group Selected!");
+                alert("Group Created!");
             }
         })
         // Jump to ready page
         window.location.assign("ready.html");
     }
 
-}
+// }
