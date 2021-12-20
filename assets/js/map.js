@@ -118,7 +118,8 @@ $.ajax({
 
 function reportCurrentLocation(curLatLng) {
     $.ajax({
-        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/monitor",
+        url: "https://k9wj046mrd.execute-api.us-east-1.amazonaws.com/6998FirstTry/monitor" +
+            "?accessToken=" + accessToken,
         headers: {"Token": idToken},
         type: 'POST',
         cache: false,
