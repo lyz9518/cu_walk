@@ -80,9 +80,10 @@ $.ajax({
                 var lat1;
                 var lng1;
 
+                var image_me = "./assets/picture/marker_me.png";
                 var marker = new google.maps.Marker({
                     // position: myLatLng, map, icon: image
-                    position: myLatLng, map
+                    position: myLatLng, map, icon: image_me,
                 });
 
                 if (navigator.geolocation) {
