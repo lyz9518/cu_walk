@@ -138,10 +138,11 @@ function create_group(){
             success: function (r) {
                 console.log(r);
                 alert("Group Created!");
+                // Jump to ready page
+                window.location.assign("ready.html");
             }
         })
-        // Jump to ready page
-        window.location.assign("ready.html");
+        
     }
 
 // }

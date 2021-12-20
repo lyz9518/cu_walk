@@ -70,11 +70,12 @@ function request_trip() {
                     success: function (r) {
                         console.log(r);
                         alert("Trip Requested!");
+                        // TODO: uncomment the jump page code when others are ready
+                        window.location.assign("select_trip.html");
                     }
                 })
 
-                // TODO: uncomment the jump page code when others are ready
-                window.location.assign("select_trip.html");
+                
             }
         });
     }
