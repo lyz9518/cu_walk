@@ -61,13 +61,22 @@ function createNewMarker(LatLng, name) {
         position: LatLng, map, icon: image_me,
     });
     // check if there is problem of event listener
-    marker.addEventListener("click", function(){
+
+    marker.addListener("click", function(){
         infoWindow.open({
             anchor: marker,
             map,
             shouldFocus: false,
         });
     });
+    
+    // marker.addEventListener("click", function(){
+    //     infoWindow.open({
+    //         anchor: marker,
+    //         map,
+    //         shouldFocus: false,
+    //     });
+    // });
     return marker;
 }
 
